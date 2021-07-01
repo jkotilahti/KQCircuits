@@ -12,7 +12,7 @@ jobs:
   test:
     name: Tests
     runs-on: ubuntu-latest
-    container: ghcr.io/iqm-finland/kqcircuits
+    container: ghcr.io/jkotilahti/kqcircuits
     strategy:
       fail-fast: false
       matrix:
@@ -83,7 +83,7 @@ jobs:
   verify_documentation:
     name: Verify documentation
     runs-on: ubuntu-latest
-    container: ghcr.io/iqm-finland/kqcircuits
+    container: ghcr.io/jkotilahti/kqcircuits
     steps:
       - uses: actions/checkout@v2
         with:
@@ -105,7 +105,7 @@ jobs:
   check_license:
     name: Check license
     runs-on: ubuntu-latest
-    container: ghcr.io/iqm-finland/kqcircuits
+    container: ghcr.io/jkotilahti/kqcircuits
     steps:
       - uses: actions/checkout@v2
       - name: Init KQCircuits
@@ -117,7 +117,7 @@ jobs:
     name: Deploy documentation
     needs: [ test, test_non_linux, verify_documentation ]
     runs-on: ubuntu-latest
-    container: ghcr.io/iqm-finland/kqcircuits
+    container: ghcr.io/jkotilahti/kqcircuits
     if: ${{ github.ref == 'refs/heads/main' }}
     steps:
       - uses: actions/checkout@v2
