@@ -1,0 +1,29 @@
+[BASIC]
+# allow short names, but require snake_case
+argument-rgx=[a-z_][a-z0-9_]{0,30}
+attr-rgx=[a-z_][a-z0-9_]{0,30}
+const-rgx=[a-z_][a-z0-9_]{0,30}
+variable-rgx=[a-z_][a-z0-9_]{0,30}
+
+[FORMAT]
+max-line-length=120
+
+[TYPECHECK]
+# otherwise all usages of pya and klayout.db cause warnings
+ignored-modules=pya,klayout.db
+
+[MESSAGES CONTROL]
+disable=
+    duplicate-code,
+    missing-class-docstring,
+    missing-function-docstring,
+    missing-module-docstring,
+    too-many-arguments,
+    too-many-branches,
+    too-many-statements,
+    too-many-locals
+
+[MISCELLANEOUS]
+# List of note tags to take in consideration, separated by a comma.
+# emptied, so that no warnings generated for TODO or FIXME comments
+notes =
