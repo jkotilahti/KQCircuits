@@ -64,7 +64,7 @@ check_copyright_headers:
 check_license:
   stage: test
   script:
-    - python check_license.py
+    - sha256sum -c license_manifest.txt
   only:
     refs:
       - merge_requests
