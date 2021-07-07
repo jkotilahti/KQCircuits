@@ -16,7 +16,6 @@
 # for individuals (meetiqm.com/developers/clas/individual) and organizations (meetiqm.com/developers/clas/organization).
 
 
-import sys
 import numpy
 from autologging import logged, traced
 

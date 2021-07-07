@@ -19,15 +19,13 @@
 import abc
 from typing import List
 
-from kqcircuits.defaults import default_layers
-from kqcircuits.elements.waveguide_coplanar import WaveguideCoplanar
 from kqcircuits.elements.airbridges.airbridge import Airbridge
+from kqcircuits.elements.element import Element
 from kqcircuits.elements.waveguide_composite import WaveguideComposite, Node
 from kqcircuits.pya_resolver import pya
-from kqcircuits.util.parameters import Param, pdt, add_parameters_from
-from kqcircuits.elements.element import Element
 from kqcircuits.simulations.port import Port, InternalPort, EdgePort
 from kqcircuits.util.geometry_helper import region_with_merged_polygons, region_with_merged_points
+from kqcircuits.util.parameters import Param, pdt, add_parameters_from
 
 
 @add_parameters_from(Element)

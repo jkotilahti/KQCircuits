@@ -16,13 +16,14 @@
 # for individuals (meetiqm.com/developers/clas/individual) and organizations (meetiqm.com/developers/clas/organization).
 
 
+import os
+import sys
 # This is a Python 2.7 script that should be run in Ansys Electronics Desktop in order to create plot of capacitance
 # matrix elements.
 import time
+
 import ScriptEnv
 
-import os
-import sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'util'))
 from util import get_enabled_setup_and_sweep, get_enabled_setup
 

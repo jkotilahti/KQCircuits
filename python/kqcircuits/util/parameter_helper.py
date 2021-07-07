@@ -19,7 +19,6 @@
 from autologging import logged, traced
 
 from kqcircuits.pya_resolver import pya
-from kqcircuits.util.parameters import Param, pdt
 
 """
     Helper module for pcell parameter schemas.

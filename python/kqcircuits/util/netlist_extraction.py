@@ -17,13 +17,14 @@
 
 
 import json
+import logging
 from os import cpu_count
+
+from kqcircuits.defaults import default_layers, default_netlist_breakdown
 from kqcircuits.pya_resolver import pya
 from kqcircuits.util.geometry_helper import get_cell_path_length
-from kqcircuits.defaults import default_layers, default_netlist_breakdown
 from kqcircuits.util.geometry_json_encoder import GeometryJsonEncoder
 
-import logging
 log = logging.getLogger(__name__)
 
 

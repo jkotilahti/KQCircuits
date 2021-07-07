@@ -16,20 +16,17 @@
 # for individuals (meetiqm.com/developers/clas/individual) and organizations (meetiqm.com/developers/clas/organization).
 
 
-import sys
 import math
 
-from kqcircuits.pya_resolver import pya
-from kqcircuits.util.parameters import Param, pdt, add_parameters_from
-
 from kqcircuits.chips.chip import Chip
-from kqcircuits.defaults import default_squid_type
 from kqcircuits.elements.qubits.qubit import Qubit
 from kqcircuits.elements.qubits.swissmon import Swissmon
 from kqcircuits.elements.waveguide_composite import WaveguideComposite, Node
-from kqcircuits.elements.waveguide_coplanar_tcross import WaveguideCoplanarTCross
 from kqcircuits.elements.waveguide_coplanar_taper import WaveguideCoplanarTaper
+from kqcircuits.elements.waveguide_coplanar_tcross import WaveguideCoplanarTCross
+from kqcircuits.pya_resolver import pya
 from kqcircuits.util.coupler_lib import produce_library_capacitor
+from kqcircuits.util.parameters import Param, pdt, add_parameters_from
 
 
 @add_parameters_from(Qubit, "squid_type", "fluxline_type")

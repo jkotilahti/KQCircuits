@@ -18,12 +18,11 @@
 
 from autologging import logged, traced
 
-from kqcircuits.defaults import default_squid_type
 from kqcircuits.elements.element import Element
 from kqcircuits.pya_resolver import pya
 from kqcircuits.squids import squid_type_choices
-from kqcircuits.util.parameters import Param, pdt
 from kqcircuits.util.library_helper import load_libraries, to_library_name
+from kqcircuits.util.parameters import Param, pdt
 
 
 @traced

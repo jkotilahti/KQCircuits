@@ -16,16 +16,15 @@
 # for individuals (meetiqm.com/developers/clas/individual) and organizations (meetiqm.com/developers/clas/organization).
 
 
-from kqcircuits.pya_resolver import pya
-from kqcircuits.util.parameters import Param, pdt, add_parameters_from
-
-from kqcircuits.elements.element import Element
-from kqcircuits.elements.waveguide_coplanar_taper import WaveguideCoplanarTaper
-from kqcircuits.elements.waveguide_coplanar import WaveguideCoplanar
 from kqcircuits.elements.airbridges import airbridge_type_choices
 from kqcircuits.elements.airbridges.airbridge import Airbridge
 from kqcircuits.elements.airbridges.airbridge_rectangular import AirbridgeRectangular
-from kqcircuits.defaults import default_layers
+from kqcircuits.elements.element import Element
+from kqcircuits.elements.waveguide_coplanar import WaveguideCoplanar
+from kqcircuits.elements.waveguide_coplanar_taper import WaveguideCoplanarTaper
+from kqcircuits.pya_resolver import pya
+from kqcircuits.util.parameters import Param, pdt, add_parameters_from
+
 
 @add_parameters_from(Airbridge)
 @add_parameters_from(AirbridgeRectangular, "bridge_width")

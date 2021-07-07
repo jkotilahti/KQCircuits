@@ -17,13 +17,11 @@
 
 
 import math
-
-from kqcircuits.pya_resolver import pya
-from kqcircuits.util.parameters import Param, pdt
+from math import ceil
 
 from kqcircuits.elements.element import Element
-from kqcircuits.defaults import default_layers
-from math import ceil
+from kqcircuits.pya_resolver import pya
+from kqcircuits.util.parameters import Param, pdt
 
 
 class WaveguideCoplanarTaper(Element):

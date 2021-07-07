@@ -16,20 +16,20 @@
 # for individuals (meetiqm.com/developers/clas/individual) and organizations (meetiqm.com/developers/clas/organization).
 
 
-from autologging import traced
 from math import pi
 
-from kqcircuits.pya_resolver import pya
-from kqcircuits.util.parameters import Param, pdt
+from autologging import traced
 
 from kqcircuits.chips.chip import Chip
+from kqcircuits.defaults import default_squid_type
 from kqcircuits.elements.meander import Meander
 from kqcircuits.elements.qubits.swissmon import Swissmon
 from kqcircuits.elements.waveguide_coplanar import WaveguideCoplanar
 from kqcircuits.elements.waveguide_coplanar_tcross import WaveguideCoplanarTCross
+from kqcircuits.pya_resolver import pya
 from kqcircuits.squids import squid_type_choices
 from kqcircuits.util.coupler_lib import produce_library_capacitor
-from kqcircuits.defaults import default_squid_type
+from kqcircuits.util.parameters import Param, pdt
 
 
 def _get_num_meanders(meander_length, turn_radius, meander_min_width):

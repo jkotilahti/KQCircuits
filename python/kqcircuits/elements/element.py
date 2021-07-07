@@ -16,15 +16,15 @@
 # for individuals (meetiqm.com/developers/clas/individual) and organizations (meetiqm.com/developers/clas/organization).
 
 
-
-from kqcircuits.pya_resolver import pya
-from kqcircuits.util.parameters import Param, pdt
-from kqcircuits.util.geometry_helper import get_cell_path_length
-from autologging import logged, traced
 from inspect import isclass
 
+from autologging import logged, traced
+
 from kqcircuits.defaults import default_layers, default_faces
+from kqcircuits.pya_resolver import pya
+from kqcircuits.util.geometry_helper import get_cell_path_length
 from kqcircuits.util.library_helper import load_libraries, to_library_name
+from kqcircuits.util.parameters import Param, pdt
 
 
 @traced

@@ -16,14 +16,10 @@
 # for individuals (meetiqm.com/developers/clas/individual) and organizations (meetiqm.com/developers/clas/organization).
 
 
-import sys
-
-from kqcircuits.pya_resolver import pya
-from kqcircuits.util.parameters import Param, pdt
-
 from kqcircuits.chips.multi_face.multi_face import MultiFace
 from kqcircuits.elements.waveguide_composite import WaveguideComposite, Node
-
+from kqcircuits.pya_resolver import pya
+from kqcircuits.util.parameters import Param, pdt
 
 version = 1
 

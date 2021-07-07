@@ -16,8 +16,6 @@
 # for individuals (meetiqm.com/developers/clas/individual) and organizations (meetiqm.com/developers/clas/organization).
 
 
-import sys
-
 from kqcircuits.pya_resolver import pya
 from kqcircuits.util.parameters import Param, pdt
 

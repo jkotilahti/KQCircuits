@@ -16,14 +16,12 @@
 # for individuals (meetiqm.com/developers/clas/individual) and organizations (meetiqm.com/developers/clas/organization).
 
 
-from kqcircuits.elements.launcher import Launcher
 from kqcircuits.elements.meander import Meander
-from kqcircuits.simulations.simulation import Simulation
-from kqcircuits.pya_resolver import pya
 from kqcircuits.elements.qubits.swissmon import Swissmon
 from kqcircuits.elements.waveguide_coplanar import WaveguideCoplanar
-from kqcircuits.simulations.port import InternalPort, EdgePort
-from kqcircuits.defaults import default_layers
+from kqcircuits.pya_resolver import pya
+from kqcircuits.simulations.port import InternalPort
+from kqcircuits.simulations.simulation import Simulation
 from kqcircuits.util.parameters import Param, pdt
 
 

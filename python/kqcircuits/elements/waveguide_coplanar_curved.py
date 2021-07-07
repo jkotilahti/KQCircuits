@@ -18,12 +18,10 @@
 
 import math
 
-from kqcircuits.pya_resolver import pya
-from kqcircuits.util.parameters import Param, pdt
-
 from kqcircuits.elements.element import Element
-from kqcircuits.defaults import default_layers
+from kqcircuits.pya_resolver import pya
 from kqcircuits.util.geometry_helper import vector_length_and_direction
+from kqcircuits.util.parameters import Param, pdt
 
 
 def up_mod(a, per):

@@ -16,10 +16,8 @@
 # for individuals (meetiqm.com/developers/clas/individual) and organizations (meetiqm.com/developers/clas/organization).
 
 
-import os
-from string import Template
 import logging
-from kqcircuits.pya_resolver import pya
+from string import Template
 
 
 def apply_template(filename_template, filename_output, rules):

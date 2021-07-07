@@ -16,15 +16,14 @@
 # for individuals (meetiqm.com/developers/clas/individual) and organizations (meetiqm.com/developers/clas/organization).
 
 import logging
+import subprocess
 import sys
 from pathlib import Path
-import subprocess
 
-from kqcircuits.simulations.export.ansys.ansys_export import export_ansys
-from kqcircuits.simulations.export.simulation_export import export_simulation_oas, cross_sweep_simulation, \
-    sweep_simulation
-from kqcircuits.simulations.simulation import Simulation
 from kqcircuits.pya_resolver import pya
+from kqcircuits.simulations.export.ansys.ansys_export import export_ansys
+from kqcircuits.simulations.export.simulation_export import export_simulation_oas, sweep_simulation
+from kqcircuits.simulations.simulation import Simulation
 from kqcircuits.util.export_helper import create_or_empty_tmp_directory, get_active_or_new_layout
 
 

@@ -16,9 +16,11 @@
 # for individuals (meetiqm.com/developers/clas/individual) and organizations (meetiqm.com/developers/clas/organization).
 
 
-import networkx as nx
-import matplotlib.pyplot as plt
 import json
+
+import matplotlib.pyplot as plt
+import networkx as nx
+
 from kqcircuits.defaults import TMP_PATH
 
 with open(str(TMP_PATH / "netlist_Chip Library.Demo.json"), "r") as fp:

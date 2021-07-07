@@ -18,16 +18,15 @@
 
 import math
 
-from kqcircuits.pya_resolver import pya
-from kqcircuits.util.parameters import Param, pdt
+from kqcircuits.defaults import default_layers
+from kqcircuits.elements.airbridges.airbridge import Airbridge
 from kqcircuits.elements.element import Element
 from kqcircuits.elements.waveguide_coplanar import WaveguideCoplanar
 from kqcircuits.elements.waveguide_coplanar_curved import WaveguideCoplanarCurved
 from kqcircuits.elements.waveguide_coplanar_straight import WaveguideCoplanarStraight
-from kqcircuits.util.geometry_helper import vector_length_and_direction, get_cell_path_length
-from kqcircuits.defaults import default_layers
-
-from kqcircuits.elements.airbridges.airbridge import Airbridge
+from kqcircuits.pya_resolver import pya
+from kqcircuits.util.geometry_helper import vector_length_and_direction
+from kqcircuits.util.parameters import Param, pdt
 
 numerical_inaccuracy = 1e-7
 
