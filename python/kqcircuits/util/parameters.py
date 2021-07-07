@@ -93,9 +93,9 @@ class Param():
         if obj is None or not hasattr(obj, "_param_values") or obj._param_values is None:
             return self.default
         if hasattr(obj, "_param_value_map"):    # Element
-           return obj._param_values[obj._param_value_map[self.name]]
+            return obj._param_values[obj._param_value_map[self.name]]
         else:                                   # Simulation
-           return obj._param_values[self.name]
+            return obj._param_values[self.name]
 
     def __set__(self, obj, value):
         if not hasattr(obj, "_param_values") or obj._param_values is None:

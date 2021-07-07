@@ -55,7 +55,7 @@ class XMonsDirectCouplingFullChipSim(Simulation):
         qubit_trans = pya.DTrans(0, False, center_x, center_y)
         qubit_inst = self.cell.insert(pya.DCellInstArray(qubit_cell.cell_index(), qubit_trans))
         if name:
-          qubit_inst.set_property("id", name)
+            qubit_inst.set_property("id", name)
 
         refpoints_abs = self.get_refpoints(qubit_cell, qubit_inst.dtrans)
         port_qubit_dr = refpoints_abs["port_drive"]
