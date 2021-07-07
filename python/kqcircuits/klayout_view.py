@@ -20,8 +20,8 @@ from autologging import logged, traced
 
 from kqcircuits.pya_resolver import pya
 
-from kqcircuits.defaults import default_layers, default_png_dimensions, mask_bitmap_export_layers, all_layers_bitmap_hide_layers, \
-    default_faces, SRC_PATHS
+from kqcircuits.defaults import default_layers, default_png_dimensions, mask_bitmap_export_layers, \
+    all_layers_bitmap_hide_layers, default_faces, SRC_PATHS
 
 
 @traced

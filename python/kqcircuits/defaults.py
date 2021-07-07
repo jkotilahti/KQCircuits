@@ -278,4 +278,5 @@ default_netlist_breakdown = [
 ]
 
 # default progress bar formatting with tqdm
-default_bar_format = '{l_bar}{bar}| {n_fmt}/{total_fmt} [Elapsed: {elapsed}, Left (eta): {remaining}, {rate_inv_fmt}{postfix}]'
+default_bar_format = '{l_bar}{bar}| {n_fmt}/{total_fmt} [Elapsed: {elapsed}, Left (eta): {remaining}, {rate_inv_fmt}' \
+                     '{postfix}]'

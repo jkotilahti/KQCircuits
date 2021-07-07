@@ -171,9 +171,12 @@ class XMonsDirectCouplingFullChipSim(Simulation):
             arm_width=[self.arm_width_b] * 4,
             gap_width=72, **qubit_props_common)
 
-        (pos_qb1_dr, pos_qb1_fl, pos_qb1_rr, port_qubit1_squid_a, port_qubit1_squid_b) = self.produce_qubit(finnmon_a, 5e3 - 330 - self.qubit_spacing, name="qb_1")
-        (pos_qb2_dr, pos_qb2_fl, pos_qb2_rr, port_qubit2_squid_a, port_qubit2_squid_b) = self.produce_qubit(finnmon_b, 5e3, name="qb_`2")
-        (pos_qb3_dr, pos_qb3_fl, pos_qb3_rr, port_qubit3_squid_a, port_qubit3_squid_b) = self.produce_qubit(finnmon_a, 5e3 + 330 + self.qubit_spacing, name="qb_3")
+        (pos_qb1_dr, pos_qb1_fl, pos_qb1_rr, port_qubit1_squid_a, port_qubit1_squid_b) = \
+            self.produce_qubit(finnmon_a, 5e3 - 330 - self.qubit_spacing, name="qb_1")
+        (pos_qb2_dr, pos_qb2_fl, pos_qb2_rr, port_qubit2_squid_a, port_qubit2_squid_b) = \
+            self.produce_qubit(finnmon_b, 5e3, name="qb_`2")
+        (pos_qb3_dr, pos_qb3_fl, pos_qb3_rr, port_qubit3_squid_a, port_qubit3_squid_b) = \
+            self.produce_qubit(finnmon_a, 5e3 + 330 + self.qubit_spacing, name="qb_3")
 
         # Readout resonators
         height_rr_feedline = 7.3e3

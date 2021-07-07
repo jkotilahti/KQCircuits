@@ -128,7 +128,8 @@ class Swissmon(Qubit):
         if l > 0:
             protection = pya.DBox(-g - w - b - self.margin, -l - b - self.margin, g + w + b + self.margin,
                                   b + self.margin)
-            self.cell.shapes(self.get_layer("ground_grid_avoidance")).insert(protection.transformed((rotation * transf)))
+            self.cell.shapes(self.get_layer("ground_grid_avoidance")).\
+                insert(protection.transformed((rotation * transf)))
 
         # add ref point
         port_ref = pya.DPoint(0, b)

@@ -54,8 +54,8 @@ def polygon_head(
         res=0,  # reserved for sonnet future
         edge_mesh="Y"  # edge mesh on (Y) or off (N)
 ):
-    return "{ilevel} {nvertices} {mtype} {filltype} {debugid} {xmin} {ymin} {xmax} {ymax} {conmax} {res} {res} {edge_mesh}\n".format(
-        **locals())
+    return "{ilevel} {nvertices} {mtype} {filltype} {debugid} {xmin} {ymin} {xmax} {ymax} {conmax} {res} {res} " \
+           "{edge_mesh}\n".format(**locals())
 
 
 def symmetry(sym: bool = False):
@@ -80,8 +80,10 @@ def box(
     materials = {
         "Si RT": "3000 1 1 0 0 0 0 \"vacuum\"\n500 11.7 1 0 0 0 0 \"Silicon (room temperature)\"",
         "Si BT": "3000 1 1 0 0 0 0 \"vacuum\"\n500 11.45 1 1e-006 0 0 0 \"Silicon (10mK)\"",
-        "SiOx+Si": "3000 1 1 0 0 0 0 \"vacuum\"\n0.55 3.78 11.7 1 0 0 0 \"SiOx (10mK)\"\n525 11.45 1 1e-06 0 0 0 \"Si (10mK)\"",
-        "Si+Al": "3000 1 1 0 0 0 0 \"vacuum\"\n0.5 9.9 1 0.0001 0 0 0 \"Alumina (99.5%)\"\n0.45 1 1 0 0 0 0 \"vacuum\"\n525 11.45 1 1e-06 0 0 0 \"Si (10mK)\"",
+        "SiOx+Si": "3000 1 1 0 0 0 0 \"vacuum\"\n0.55 3.78 11.7 1 0 0 0 \"SiOx (10mK)\"\n525 11.45 1 1e-06 0 0 0 \"Si "
+                   "(10mK)\"",
+        "Si+Al": "3000 1 1 0 0 0 0 \"vacuum\"\n0.5 9.9 1 0.0001 0 0 0 \"Alumina (99.5%)\"\n0.45 1 1 0 0 0 0 \"vacuum\""
+                 "\n525 11.45 1 1e-06 0 0 0 \"Si (10mK)\"",
     }[materials_type]
 
     nlev = {
@@ -131,8 +133,8 @@ def port(
     if group:
         group = '"' + group + '"'
     logging.info(locals())
-    return "POR1 {port_type} {group}\nPOLY {ipolygon} 1\n{ivertex}\n{portnum} {resist} {react} {induct} {capac}\n".format(
-        **locals())  # {xcord} {ycord} [reftype rpcallen]
+    return "POR1 {port_type} {group}\nPOLY {ipolygon} 1\n{ivertex}\n{portnum} {resist} {react} {induct} {capac}\n".\
+        format(**locals())  # {xcord} {ycord} [reftype rpcallen]
 
 
 # def ports(shapes):
@@ -153,7 +155,8 @@ def port(
 def control(control_type):
     return {
         "Simple": "SIMPLE",  # Linear frequency sweep
-        "ABS": "ABS", # Sonnet guesses the resonances, simulates about 5 points around the resonance and interpolates the rest
+        "ABS": "ABS", # Sonnet guesses the resonances, simulates about 5 points around the resonance and interpolates
+                      # the rest
         "Sweep": "VARSWP"
     }[control_type]
 
@@ -168,7 +171,8 @@ def polygons(polygons, v, dbu, ilevel, fill_type):
         else:
             sonnet_str += polygon_head(nvertices=poly.num_points_hull() + 1,
                                    debugid=i + 1, ilevel=next(ilevel),
-                                   filltype=fill_type)  # "Debugid" is actually used for mapping ports to polygons, 0 is not allowed
+                                   filltype=fill_type)  # "Debugid" is actually used for mapping ports to polygons, 0 is
+                                                        # not allowed
 
         for j, point in enumerate(poly.each_point_hull()):
             sonnet_str += "{} {}\n".format(point.x * dbu + v.x,

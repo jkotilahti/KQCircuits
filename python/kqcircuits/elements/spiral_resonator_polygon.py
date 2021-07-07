@@ -239,7 +239,8 @@ class SpiralResonatorPolygon(Element):
                 curve_alpha = curve_length / self.r
                 # add new curve piece at the waveguide end
                 curve_cell = self.add_element(WaveguideCoplanarCurved, SpiralResonatorPolygon, alpha=curve_alpha)
-                curve_trans = pya.DCplxTrans(1, degrees(alpha1) - v1.vprod_sign(v2)*90, v1.vprod_sign(v2) < 0, corner_pos)
+                curve_trans = pya.DCplxTrans(1, degrees(alpha1) - v1.vprod_sign(v2)*90, v1.vprod_sign(v2) < 0,
+                                             corner_pos)
                 self.insert_cell(curve_cell, curve_trans)
                 WaveguideCoplanarCurved.produce_curve_termination(self, curve_alpha, self.term2, curve_trans)
                 return True

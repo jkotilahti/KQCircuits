@@ -34,7 +34,8 @@ def nodes1():
     """ Node list that uses all features and parameters and some combinations of these """
     return [
         Node(pya.DPoint(0, 0)),
-        Node(pya.DPoint(200, 0), AirbridgeConnection, airbridge_type="Airbridge Rectangular", with_side_airbridges=False, b=4, a=5),
+        Node(pya.DPoint(200, 0), AirbridgeConnection, airbridge_type="Airbridge Rectangular",
+             with_side_airbridges=False, b=4, a=5),
         Node(pya.DPoint(400, 0), FlipChipConnectorRf, face_id="t"),
         Node(pya.DPoint(600, 0), AirbridgeConnection, with_side_airbridges=False),
         Node(pya.DPoint(800, 0), FingerCapacitorSquare),

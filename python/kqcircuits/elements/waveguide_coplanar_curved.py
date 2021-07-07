@@ -40,7 +40,9 @@ def arc(r, start, stop, n):
 
     alpha_rel = up_mod(stop - start, math.pi * 2)  # from 0 to 2 pi
     alpha_step = 2 * math.pi / n * (
-        -1 if alpha_rel > math.pi else 1)  # shorter dir  n_steps = math.floor((2*math.pi-alpha_rel)/abs(alpha_step) if alpha_rel > math.pi else alpha_rel/abs(alpha_step))
+        -1 if alpha_rel > math.pi else 1)
+    # shorter dir
+    # n_steps = math.floor((2*math.pi-alpha_rel)/abs(alpha_step) if alpha_rel > math.pi else alpha_rel/abs(alpha_step))
     n_steps = math.floor(
         (2 * math.pi - alpha_rel) / abs(alpha_step) if alpha_rel > math.pi else alpha_rel / abs(alpha_step))
 
@@ -158,4 +160,4 @@ class WaveguideCoplanarCurved(Element):
             right_protection_arc[0],
         ]
         protection_shape = pya.DPolygon(protection_pts)
-        elem.cell.shapes(elem.layout.layer(elem.face(face_index)["ground_grid_avoidance"])).insert(trans*protection_shape)
+        elem.cell.shapes(elem.get_layer("ground_grid_avoidance", face_index)).insert(trans*protection_shape)

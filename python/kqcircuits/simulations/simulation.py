@@ -257,7 +257,8 @@ class Simulation:
             face: face to place waveguide and port on. Either 0 (default) or 1, for bottom or top face.
         """
 
-        waveguide_safety_overlap = 0.005  # Extend waveguide by this amount to avoid gaps due to nm-scale rounding errors
+        waveguide_safety_overlap = 0.005  # Extend waveguide by this amount to avoid gaps due to nm-scale rounding
+                                          # errors
         waveguide_gap_extension = 1  # Extend gaps beyond waveguides into ground plane to define the ground port edge
 
         if turn_radius is None:

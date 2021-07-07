@@ -16,7 +16,8 @@
 # for individuals (meetiqm.com/developers/clas/individual) and organizations (meetiqm.com/developers/clas/organization).
 
 
-# This is a Python 2.7 script that should be run in Ansys Electronics Desktop in order to create plot of capacitance matrix elements.
+# This is a Python 2.7 script that should be run in Ansys Electronics Desktop in order to create plot of capacitance
+# matrix elements.
 import time
 import ScriptEnv
 

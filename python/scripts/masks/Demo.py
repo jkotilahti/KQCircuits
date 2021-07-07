@@ -68,6 +68,7 @@ mdemo.add_mask_layout([
 ], "b", layers_to_mask=layers_to_mask)
 
 # t-face mask
+# pylint: disable=line-too-long
 mdemo.add_mask_layout([
     ["---", "---", "---", "---", "---", "---", "---", "---", "---", "---", "---", "---", "---", "---", "---", "---", "---", "---", "---", "---", "---"],
     ["---", "---", "---", "---", "---", "---", "MF1", "MF1", "MF1", "MF1", "MF1", "MF1", "MF1", "MF1", "MF1", "---", "---", "---", "---", "---", "---"],
@@ -91,6 +92,7 @@ mdemo.add_mask_layout([
     ["---", "---", "---", "---", "---", "---", "DT1", "DT1", "DT1", "DT1", "DT1", "DT1", "DT1", "DT1", "DT1", "---", "---", "---", "---", "---", "---"],
     ["---", "---", "---", "---", "---", "---", "---", "---", "---", "---", "---", "---", "---", "---", "---", "---", "---", "---", "---", "---", "---"],
 ], "t", layers_to_mask=layers_to_mask)
+# pylint: enable=line-too-long
 
 # chip definitions
 mdemo.add_chip(AirbridgeCrossings, "AC1", b_number=4, crossings=8)
