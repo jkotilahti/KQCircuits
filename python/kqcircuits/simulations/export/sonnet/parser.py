@@ -52,8 +52,8 @@ def polygon_head(
         res=0,  # reserved for sonnet future
         edge_mesh="Y"  # edge mesh on (Y) or off (N)
 ):
-    return "{ilevel} {nvertices} {mtype} {filltype} {debugid} {xmin} {ymin} {xmax} {ymax} {conmax} {res} {res} " \
-           "{edge_mesh}\n".format(**locals())
+    return f"{ilevel} {nvertices} {mtype} {filltype} {debugid} {xmin} {ymin} {xmax} {ymax} {conmax} {res} {res} " \
+           f"{edge_mesh}\n"
 
 
 def symmetry(sym: bool = False):
@@ -91,7 +91,7 @@ def box(
         "Si+Al": 3
     }[materials_type]
 
-    return "BOX {nlev} {xwidth} {ywidth} {xcells2} {ycells2} {nsubs} {eeff}\n{materials}".format(**locals())
+    return f"BOX {nlev} {xwidth} {ywidth} {xcells2} {ycells2} {nsubs} {eeff}\n{materials}"
 
 
 def refplane(
@@ -106,7 +106,7 @@ def refplane(
     else:
         plane_type = "FIX"
         poly = ""
-    return "DRP1 {position} {plane_type} {length}\n{poly}".format(**locals())
+    return f"DRP1 {position} {plane_type} {length}\n{poly}"
 
 def refplanes(positions, length, port_ipolys):
     sonnet_str = ""
@@ -120,8 +120,8 @@ def port(
         ipolygon,
         ivertex,
         port_type="STD",  # STD for standard | AGND autogrounded | CUP cocalibrated
-        xcord=0,
-        ycord=0,
+        xcord=0,  # pylint: disable=unused-argument
+        ycord=0,  # pylint: disable=unused-argument
         group="",
         resist=50,
         react=0,
@@ -131,8 +131,8 @@ def port(
     if group:
         group = '"' + group + '"'
     logging.info(locals())
-    return "POR1 {port_type} {group}\nPOLY {ipolygon} 1\n{ivertex}\n{portnum} {resist} {react} {induct} {capac}\n".\
-        format(**locals())  # {xcord} {ycord} [reftype rpcallen]
+    return f"POR1 {port_type} {group}\nPOLY {ipolygon} 1\n{ivertex}\n{portnum} {resist} {react} {induct} {capac}\n"
+    # {xcord} {ycord} [reftype rpcallen]
 
 
 # def ports(shapes):

@@ -126,7 +126,7 @@ class AirbridgeCrossings(Chip):
                     self._produce_mechanical_test(loc, distance, self.b_number, length, width, create_airbridges)
 
     def _produce_mechanical_test(self, loc, distance, number, length, width, create_airbridges):
-
+        # pylint: disable=unused-argument
         wg_len = ((number * (distance + width)) * 2) + 4
         wg_start = loc + pya.DVector(-wg_len / 2, 0)
         wg_end = loc + pya.DVector(+wg_len / 2, 0)

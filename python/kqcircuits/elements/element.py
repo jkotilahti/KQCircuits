@@ -306,6 +306,7 @@ class Element(pya.PCellDeclarationHelper):
         For TypeLayer parameters this also defines a `name_layer` read accessor for the layer index and modifies
         `self._layer_param_index` accordingly.
         """
+        # pylint: disable=unused-argument
 
         # special handling of layer parameters
         if value_type == pya.PCellParameterDeclaration.TypeLayer:

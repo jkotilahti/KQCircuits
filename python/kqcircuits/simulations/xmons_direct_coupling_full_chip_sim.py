@@ -89,7 +89,7 @@ class XMonsDirectCouplingFullChipSim(Simulation):
 
         return
 
-    def produce_launcher(self, pos, direction, name="", width=300):
+    def produce_launcher(self, pos, direction):
         """Wrapper function for launcher PCell placement at `pos` with `direction`, `name` and `width`."""
 
         subcell = self.add_element(WaveguideCoplanar,
@@ -101,7 +101,6 @@ class XMonsDirectCouplingFullChipSim(Simulation):
             term2=0,
         )
 
-        #subcell = self.add_element(Launcher, name=name, s=width, l=width)
         if isinstance(direction, str):
             direction = {"E": 0, "W": 180, "S": -90, "N": 90}[direction]
         transf = pya.DCplxTrans(1, direction, False, pos)
@@ -134,7 +133,7 @@ class XMonsDirectCouplingFullChipSim(Simulation):
             "NE": (pya.DPoint(7200, 9200), "N", 300)
         }
         for name in enabled:
-            self.produce_launcher(launchers[name][0], launchers[name][1], name)
+            self.produce_launcher(launchers[name][0], launchers[name][1])
         return launchers
 
     def build(self):
