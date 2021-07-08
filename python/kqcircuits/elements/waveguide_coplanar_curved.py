@@ -46,7 +46,7 @@ def arc(r, start, stop, n):
 
     alpha = start
 
-    for i in range(0, n_steps + 1):
+    for _ in range(0, n_steps + 1):
         pts.append(pya.DPoint(r * math.cos(alpha), r * math.sin(alpha)))
         alpha += alpha_step
         last = alpha
@@ -132,7 +132,7 @@ class WaveguideCoplanarCurved(Element):
             face_index (int): face index of the face in elem where the termination is created
         """
         left_inner_arc, left_outer_arc, right_inner_arc, right_outer_arc, left_protection_arc, right_protection_arc,\
-            annotation_arc = WaveguideCoplanarCurved.create_curve_arcs(elem, angle)
+            _ = WaveguideCoplanarCurved.create_curve_arcs(elem, angle)
 
         # direction of the termination box
         _, term_dir = vector_length_and_direction(left_outer_arc[0] - left_outer_arc[1])

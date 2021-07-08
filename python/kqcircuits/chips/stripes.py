@@ -37,9 +37,6 @@ class Stripes(Chip):
     def produce_impl(self):
 
         # defining the dimensions for creating the polygonal area of test
-        edge_len = self.edge_len
-        inter_space = self.inter_space
-
         left = self.box.left
         right = self.box.right
         top = self.box.top
@@ -53,9 +50,6 @@ class Stripes(Chip):
 
         width = right - left
         height = top - bottom
-
-        p_width = p_right - p_left
-        p_height = p_top - p_bottom
 
         # create the test area polygon
         poly = pya.DPolygon([
@@ -75,7 +69,6 @@ class Stripes(Chip):
 
         # create the box array
         b_array = []
-        t = 0
 
         square_y_reach = bottom + height
         square_x_start = left + 120

@@ -36,8 +36,6 @@ class JunctionTest(Chip):
     def produce_impl(self):
 
         # defining the parameters for local use
-        edge_len = self.edge_len
-        inter_space = self.inter_space
 
         left = self.box.left
         right = self.box.right

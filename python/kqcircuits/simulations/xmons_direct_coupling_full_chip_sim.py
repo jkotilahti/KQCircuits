@@ -85,7 +85,7 @@ class XMonsDirectCouplingFullChipSim(Simulation):
             meanders=8,
             r=50
         )
-        meander_inst = self.cell.insert(pya.DCellInstArray(meander.cell_index(), pya.DTrans()))
+        self.cell.insert(pya.DCellInstArray(meander.cell_index(), pya.DTrans()))
 
         return
 

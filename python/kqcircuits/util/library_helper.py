@@ -74,7 +74,7 @@ def load_libraries(flush=False, path=""):   #TODO `flush=True` does not work wit
         load_libraries._log.debug("Deleted all libraries.")
     else:
         # if a library with the given path already exist, use it
-        for lib, lib_path in _kqc_libraries.values():
+        for _, lib_path in _kqc_libraries.values():
             if lib_path == path:
                 return {key: value[0] for key, value in _kqc_libraries.items()}
 
@@ -220,7 +220,7 @@ def _register_pcell(pcell_class, library, library_name):
         pcell_name = to_library_name(pcell_class.__name__)
         library.layout().register_pcell(pcell_name, pcell_class())
         _register_pcell._log.debug("Registered pcell [{}] to library {}.".format(pcell_name, library_name))
-    except Exception as e:
+    except Exception:
         _register_pcell._log.warning(
             "Failed to register pcell in class {} to library {}.".format(pcell_class, library_name),
             exc_info=True
@@ -333,7 +333,7 @@ def _get_library_dependencies(library):
     library_dependencies = set()
     for pcell_name in library.layout().pcell_names():
         pcell_class = library.layout().pcell_declaration(pcell_name).__class__
-        for name, obj in inspect.getmembers(sys.modules[pcell_class.__module__]):
+        for _, obj in inspect.getmembers(sys.modules[pcell_class.__module__]):
             if hasattr(obj, "LIBRARY_NAME"):
                 if obj.LIBRARY_NAME != pcell_class.LIBRARY_NAME:
                     library_dependencies.add(obj.LIBRARY_NAME)

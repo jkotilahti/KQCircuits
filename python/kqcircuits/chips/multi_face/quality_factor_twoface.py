@@ -114,7 +114,7 @@ class QualityFactorTwoface(MultiFace):
 
             # Cross
             cross_trans = pya.DTrans(tl_start + v_res_step * (i + 0.5)) * rot_2
-            inst_cross, cross_refpoints_abs = self.insert_cell(cell_cross, cross_trans)
+            _, cross_refpoints_abs = self.insert_cell(cell_cross, cross_trans)
 
             # Coupler
             cplr_pos = cross_refpoints_abs["port_bottom"] + cplr_pos_post

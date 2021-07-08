@@ -172,7 +172,7 @@ def polygons(polygons, v, dbu, ilevel, fill_type):
                                    filltype=fill_type)  # "Debugid" is actually used for mapping ports to polygons, 0 is
                                                         # not allowed
 
-        for j, point in enumerate(poly.each_point_hull()):
+        for _, point in enumerate(poly.each_point_hull()):
             sonnet_str += "{} {}\n".format(point.x * dbu + v.x,
                                            -(point.y * dbu + v.y))  # sonnet Y-coordinate goes in the other direction
         point = next(poly.each_point_hull())  # first point again to close the polygon

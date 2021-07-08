@@ -136,7 +136,6 @@ class SpiralResonatorPolygon(Element):
                 break
             tmp_cell = self.add_element(WaveguideCoplanar, SpiralResonatorPolygon, path=pya.DPath(points, 0))
             length = tmp_cell.length()
-        n_input_points = len(points)
 
         # segments based on poly_path points
         poly_points = [p for p in self.poly_path.each_point()]

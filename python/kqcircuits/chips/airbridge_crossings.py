@@ -77,7 +77,7 @@ class AirbridgeCrossings(Chip):
         crossings = self.crossings  # must be even
         step = (launchers["WN"][0].y - launchers["WS"][0].y) / (crossings - 0.5) / 2
         wiggle = 250
-        for i in range(crossings):
+        for _ in range(crossings):
             nodes.append(Node((ref_x - wiggle, last_y)))
             nodes.append(Node((ref_x, last_y), AirbridgeConnection))
             nodes.append(Node((ref_x + wiggle, last_y)))
@@ -97,7 +97,7 @@ class AirbridgeCrossings(Chip):
         nodes = [Node(launchers["EN"][0])]
         ref_x = launchers["NE"][0].x + 2 * wiggle + 50
         last_y = launchers["EN"][0].y
-        for i in range(crossings):
+        for _ in range(crossings):
             nodes.append(Node((ref_x + wiggle, last_y)))
             nodes.append(Node((ref_x - wiggle, last_y)))
             last_y -= step
@@ -130,7 +130,7 @@ class AirbridgeCrossings(Chip):
         wg_len = ((number * (distance + width)) * 2) + 4
         wg_start = loc + pya.DVector(-wg_len / 2, 0)
         wg_end = loc + pya.DVector(+wg_len / 2, 0)
-        v_step = pya.DVector((distance + width) * 2, 0)
+        # v_step = pya.DVector((distance + width) * 2, 0)
 
         ab = self.add_element(Airbridge,
             # pad_width=1.1 * width,

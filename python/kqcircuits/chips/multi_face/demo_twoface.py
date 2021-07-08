@@ -174,8 +174,7 @@ class DemoTwoface(MultiFace):
         )
         tcross_ref_rel = self.get_refpoints(tcross_cell, pya.DTrans(tcross_rot, False, 0, 0))
         tcross_trans = pya.DTrans(tcross_rot, False, cap_ref_abs["port_b"] - tcross_ref_rel["port_bottom"])
-        _, tcross_ref_abs_ = self.insert_cell(tcross_cell, tcross_trans, inst_name="RO{}".format(qubit_nr),
-                                              label_trans=pya.DCplxTrans(0.2))
+        self.insert_cell(tcross_cell, tcross_trans, inst_name="RO{}".format(qubit_nr), label_trans=pya.DCplxTrans(0.2))
 
     def produce_probelines(self):
         self.produce_probeline("RO-A", 1, 3, True, 4)

@@ -100,7 +100,7 @@ class QualityFactor(Chip):
         for i in range(resonators):
             # Cross
             cross_trans = pya.DTrans(tl_start + v_res_step * (i + 0.5))
-            inst_cross, cross_refpoints_abs = self.insert_cell(cell_cross, cross_trans)
+            _, cross_refpoints_abs = self.insert_cell(cell_cross, cross_trans)
 
             # Coupler
             cplr = produce_library_capacitor(self.layout, n_fingers[i], l_fingers[i], type_coupler[i])

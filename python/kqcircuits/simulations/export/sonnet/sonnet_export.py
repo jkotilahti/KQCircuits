@@ -29,7 +29,7 @@ from kqcircuits.util.export_helper import write_commit_reference_file
 
 
 def poly_and_edge_indices(polygons, dbu, port, number, location, group):
-    i, j, signal_edge = find_edge_from_point_in_polygons(
+    i, j, _ = find_edge_from_point_in_polygons(
         polygons,
         location,
         dbu,
@@ -82,9 +82,6 @@ def export_sonnet_son(simulation: Simulation, path: Path, detailed_resonance=Fal
         layer_bridge = layout.layer(default_layers["b_simulation_airbridge_flyover"])
         layer_son = layout.layer(default_layers["b_simulation_signal"])
         layer_son_ground = layout.layer(default_layers["b_simulation_ground"])
-
-        def simple_region(region):
-            return pya.Region([poly.to_simple_polygon() for poly in region.each()])  # .to_itype(dbu)
 
         simpolygons = [p.polygon for p in simulation.cell.shapes(layer_son).each()] + \
                       [p.polygon for p in simulation.cell.shapes(layer_son_ground).each()]

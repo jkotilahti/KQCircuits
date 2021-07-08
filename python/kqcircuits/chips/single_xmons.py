@@ -121,7 +121,7 @@ class SingleXmons(Chip):
 
         """
         qubit_trans = pya.DTrans(rotation, False, center_x, center_y)
-        qubit_inst, refpoints_abs = self.insert_cell(qubit_cell, qubit_trans, name, rec_levels=None)
+        _, refpoints_abs = self.insert_cell(qubit_cell, qubit_trans, name, rec_levels=None)
         return refpoints_abs
 
     def _produce_qubits(self):
@@ -330,7 +330,7 @@ class SingleXmons(Chip):
         for i in range(4):
             # Cross
             cross_trans = pya.DTrans(2 * (i % 2), False, test_resonator_positions[i])
-            inst_cross, ref_cross = self.insert_cell(cell_cross, cross_trans)
+            inst_cross, _ = self.insert_cell(cell_cross, cross_trans)
             inst_crosses.append(inst_cross)
             cross_refpoints_abs = self.get_refpoints(cell_cross, inst_crosses[i].dtrans)
 

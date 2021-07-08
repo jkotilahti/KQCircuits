@@ -165,7 +165,7 @@ def export_docs(mask_set, export_dir, filename="Mask_Documentation.md"):
                         else:
                             counts[curr_name] = 1
 
-                for submask_layout, submask_pos in mlayout.submasks:
+                for submask_layout, _ in mlayout.submasks:
                     count_chips(submask_layout)
 
             count_chips(mask_layout)
@@ -338,7 +338,7 @@ def _export_cell(path, cell=None, layers_to_export={}):
         svopt.deselect_all_layers()
         svopt.clear_cells()
         svopt.add_cell(cell.cell_index())
-        for layer_name, layer in items:
+        for _, layer in items:
             layer_info = cell.layout().layer_infos()[layer]
             svopt.add_layer(layer, layer_info)
         svopt.write_context_info = False

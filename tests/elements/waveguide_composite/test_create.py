@@ -126,7 +126,7 @@ def test_crash_and_node_formats(capfd, nodes1, nodes2):
 def _make_wg(capfd, nodes):
     layout = pya.Layout()
     wg = WaveguideComposite.create(layout, nodes=nodes)
-    out, err = capfd.readouterr()
+    _, err = capfd.readouterr()
     assert err == "", err
     return wg.length()
 

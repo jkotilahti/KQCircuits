@@ -44,8 +44,7 @@ class AirbridgeConnection(Element):
         )
         taper_l_ref = self.get_refpoints(taper_l)
         taper_end_v = pya.DVector(-self.bridge_length/2-2*self.pad_length, 0)
-        taper_l_inst, taper_l_ref_abs = \
-            self.insert_cell(taper_l, pya.DTrans(taper_end_v-taper_l_ref["port_b"].to_v()))
+        _, taper_l_ref_abs = self.insert_cell(taper_l, pya.DTrans(taper_end_v-taper_l_ref["port_b"].to_v()))
 
         a = self.bridge_width
         b = a/self.a * self.b
@@ -76,8 +75,7 @@ class AirbridgeConnection(Element):
             )
             taper_r_ref = self.get_refpoints(taper_r)
             taper_end_v = pya.DVector(self.bridge_length/2+2*self.pad_length, 0)
-            taper_r_inst, taper_r_ref_abs = \
-                self.insert_cell(taper_r, pya.DTrans(taper_end_v-taper_r_ref["port_a"].to_v()))
+            _, taper_r_ref_abs = self.insert_cell(taper_r, pya.DTrans(taper_end_v-taper_r_ref["port_a"].to_v()))
 
             terminator_r = self.add_element(WaveguideCoplanar,
                 face_ids=self.face_ids,

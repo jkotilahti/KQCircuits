@@ -495,7 +495,7 @@ def produce_fixed_length_bend(element, target_len, point_a, point_a_corner, poin
         # floods the database with PCell variants :(
         root = root_scalar(objective, bracket=(element.r, target_len / 2))
         cell = _var_length_bend(element.layout, root.root, point_a, point_a_corner, point_b, point_b_corner, bridges)
-        inst, ref = element.insert_cell(cell)
+        inst, _ = element.insert_cell(cell)
     except ValueError:
         raise ValueError("Cannot create a waveguide bend with length {} between points {} and {}".format(
             target_len, point_a, point_b))

@@ -368,7 +368,7 @@ class Chip(Element):
                                    (self.box.p2.x - self.box.p1.x) / 2
                                    + pad_pitch * (i + 0.5 - int(nr_pads_per_side / 2)))
 
-        for direction, rot, trans in (
+        for direction, _, trans in (
                 ("N", pya.DTrans.R270, pya.DTrans(3, 0, self.box.p1.x, self.box.p2.y)),
                 ("E", pya.DTrans.R180, pya.DTrans(2, 0, self.box.p2.x, self.box.p2.y)),
                 ("S", pya.DTrans.R90, pya.DTrans(1, 0, self.box.p2.x, self.box.p1.y)),
