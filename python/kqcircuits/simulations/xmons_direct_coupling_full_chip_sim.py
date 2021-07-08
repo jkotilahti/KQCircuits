@@ -109,6 +109,7 @@ class XMonsDirectCouplingFullChipSim(Simulation):
         self.cell.insert(pya.DCellInstArray(subcell2.cell_index(), transf))
 
     def produce_launchers_SMA8(self, enabled=["WS", "WN", "ES", "EN", "SW", "SE", "NW", "NE"]):
+        # pylint: disable=invalid-name
         """Produces enabled launchers for SMA8 sample holder default locations
 
         Args:

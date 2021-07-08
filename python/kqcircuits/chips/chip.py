@@ -109,6 +109,9 @@ class Chip(Element):
         launcher_inst.set_property("port_id", port_id)
         self.add_port(name, launcher_refpoints["port"])
 
+    # disable pylint warning to allow capitalized sample holder names
+    # pylint: disable=invalid-name
+
     def produce_launchers_SMA8(self, enabled=["WS", "WN", "ES", "EN", "SW", "SE", "NW", "NE"],
                                launcher_assignments=None):
         """Produces enabled launchers for SMA8 sample holder default locations.
@@ -172,6 +175,9 @@ class Chip(Element):
         """
         launchers = self.produce_n_launchers(24, "DC", 500, 300, 680, launcher_assignments, 850)
         return launchers
+
+    # re-enable pylint warning disabled above
+    # pylint: enable=invalid-name
 
     def produce_junction_tests(self, squid_type=default_squid_type):
         """Produces junction test pads in the chip.

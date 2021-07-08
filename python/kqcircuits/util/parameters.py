@@ -41,7 +41,7 @@ def add_parameters_from(cls, *args):
     return lambda obj: _decorate(obj)
 
 
-class pdt:
+class pdt:  # pylint: disable=invalid-name
     """A namespace for pya.PCellParameterDeclaration types."""
     TypeDouble = pya.PCellParameterDeclaration.TypeDouble
     TypeInt = pya.PCellParameterDeclaration.TypeInt
