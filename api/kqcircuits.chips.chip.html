@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>kqcircuits.chips.chip &mdash; KQCircuits 3.3.0 documentation</title>
+  <title>kqcircuits.chips.chip &mdash; KQCircuits 3.4.0 documentation</title>
   
 
   
@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
 
   
+  
+    <link rel="shortcut icon" href="../_static/logo.svg"/>
   
 
   
@@ -34,10 +36,12 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
+    <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="kqcircuits.chips.dc_test" href="kqcircuits.chips.dc_test.html" />
@@ -64,6 +68,10 @@
           
             
             
+              <div class="version">
+                3.4.0
+              </div>
+            
           
 
           
@@ -88,6 +96,7 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../start/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/index.html">User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Libraries</a></li>
@@ -106,6 +115,7 @@
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.chips.quality_factor.html">kqcircuits.chips.quality_factor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.chips.sample_holder_test.html">kqcircuits.chips.sample_holder_test</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.chips.shaping.html">kqcircuits.chips.shaping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kqcircuits.chips.simple.html">kqcircuits.chips.simple</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.chips.single_xmons.html">kqcircuits.chips.single_xmons</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.chips.stripes.html">kqcircuits.chips.stripes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.chips.tsv_test.html">kqcircuits.chips.tsv_test</a></li>
@@ -128,6 +138,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../trademarks.html">Trademarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
 </ul>
 
             
@@ -210,11 +221,6 @@
 optionally grid. Production of the chip frames can be adjusted by overriding the produce_frames() method.</p>
 <p>Provides helpers to produce launchers and junction tests.</p>
 <dl class="attribute">
-<dt id="kqcircuits.chips.chip.Chip.version">
-<code class="sig-name descname">version</code><em class="property"> = 2</em><a class="headerlink" href="#kqcircuits.chips.chip.Chip.version" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
 <dt id="kqcircuits.chips.chip.Chip.LIBRARY_NAME">
 <code class="sig-name descname">LIBRARY_NAME</code><em class="property"> = 'Chip Library'</em><a class="headerlink" href="#kqcircuits.chips.chip.Chip.LIBRARY_NAME" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -260,7 +266,7 @@ optionally grid. Production of the chip frames can be adjusted by overriding the
 
 <dl class="method">
 <dt id="kqcircuits.chips.chip.Chip.produce_launcher">
-<code class="sig-name descname">produce_launcher</code><span class="sig-paren">(</span><em class="sig-param">pos</em>, <em class="sig-param">direction</em>, <em class="sig-param">name</em>, <em class="sig-param">port_id</em>, <em class="sig-param">width</em>, <em class="sig-param">launcher_type='RF'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kqcircuits/chips/chip.html#Chip.produce_launcher"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kqcircuits.chips.chip.Chip.produce_launcher" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">produce_launcher</code><span class="sig-paren">(</span><em class="sig-param">pos</em>, <em class="sig-param">direction</em>, <em class="sig-param">name</em>, <em class="sig-param">port_id</em>, <em class="sig-param">width</em>, <em class="sig-param">gap</em>, <em class="sig-param">launcher_type='RF'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kqcircuits/chips/chip.html#Chip.produce_launcher"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kqcircuits.chips.chip.Chip.produce_launcher" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inserts a launcher in the chip.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -270,6 +276,7 @@ optionally grid. Production of the chip frames can be adjusted by overriding the
 <li><p><strong>name</strong> – name inserted as property “id” in the launcher</p></li>
 <li><p><strong>port_id</strong> – id inserted as property “port_id” in the launcher</p></li>
 <li><p><strong>width</strong> – controls the pad width and tapering length of the launcher</p></li>
+<li><p><strong>gap</strong> – controls the gap from pad to ground</p></li>
 <li><p><strong>launcher_type</strong> – type of the launcher, “RF” or “DC”</p></li>
 </ul>
 </dd>
@@ -422,7 +429,7 @@ optionally grid. Production of the chip frames can be adjusted by overriding the
 
 <dl class="method">
 <dt id="kqcircuits.chips.chip.Chip.produce_n_launchers">
-<code class="sig-name descname">produce_n_launchers</code><span class="sig-paren">(</span><em class="sig-param">n</em>, <em class="sig-param">launcher_type</em>, <em class="sig-param">launcher_width</em>, <em class="sig-param">launcher_indent</em>, <em class="sig-param">launcher_assignments</em>, <em class="sig-param">pad_pitch</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kqcircuits/chips/chip.html#Chip.produce_n_launchers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kqcircuits.chips.chip.Chip.produce_n_launchers" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">produce_n_launchers</code><span class="sig-paren">(</span><em class="sig-param">n</em>, <em class="sig-param">launcher_type</em>, <em class="sig-param">launcher_width</em>, <em class="sig-param">launcher_gap</em>, <em class="sig-param">launcher_indent</em>, <em class="sig-param">launcher_assignments</em>, <em class="sig-param">pad_pitch</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kqcircuits/chips/chip.html#Chip.produce_n_launchers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kqcircuits.chips.chip.Chip.produce_n_launchers" title="Permalink to this definition">¶</a></dt>
 <dd><p>Produces n launchers at default locations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -430,6 +437,7 @@ optionally grid. Production of the chip frames can be adjusted by overriding the
 <li><p><strong>n</strong> – number of launcher pads</p></li>
 <li><p><strong>launcher_type</strong> – type of the launchers, “RF” or “DC”</p></li>
 <li><p><strong>launcher_width</strong> – width of the launchers</p></li>
+<li><p><strong>launcher_gap</strong> – pad to ground gap of the launchers</p></li>
 <li><p><strong>launcher_indent</strong> – distance between the chip edge and pad port</p></li>
 <li><p><strong>launcher_assignments</strong> – dictionary of (port_id: name) that assigns a role to some of the launchers</p></li>
 <li><p><strong>pad_pitch</strong> – distance between pad centers</p></li>

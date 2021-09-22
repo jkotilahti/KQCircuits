@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Developer Setup &mdash; KQCircuits 3.3.0 documentation</title>
+  <title>Developer Setup &mdash; KQCircuits 3.4.0 documentation</title>
   
 
   
@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
 
   
+  
+    <link rel="shortcut icon" href="../_static/logo.svg"/>
   
 
   
@@ -34,10 +36,12 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
+    <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="KLayout Standalone Usage" href="standalone.html" />
@@ -64,6 +68,10 @@
           
             
             
+              <div class="version">
+                3.4.0
+              </div>
+            
           
 
           
@@ -88,6 +96,7 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../start/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/index.html">User Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Developer Guide</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Developer Setup</a><ul>
@@ -105,17 +114,19 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="standalone.html">KLayout Standalone Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker_image.html">Docker image</a></li>
 <li class="toctree-l2"><a class="reference internal" href="architecture.html">Architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="testing.html">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="coding_style.html">Coding Style</a></li>
 <li class="toctree-l2"><a class="reference internal" href="documentation.html">Documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html">Contributing</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Libraries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/kqcircuits.html">API documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../trademarks.html">Trademarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
 </ul>
 
             
@@ -197,7 +208,7 @@ duplicate macros and possibly other problems.</p>
 <p class="admonition-title">Note</p>
 <p>You must open KLayout at least once before installing KQCircuits, because the KLayout python
 folder <code class="docutils literal notranslate"><span class="pre">~/.klayout/python</span></code> is only created then. The documentation uses Linux paths unless
-explicitely mentioned otherwise.</p>
+explicitly mentioned otherwise.</p>
 </div>
 <div class="section" id="python">
 <h3>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h3>
@@ -252,9 +263,9 @@ operating systems are explained in the following subsections. The script
 automatically do the same steps as explained below.</p>
 <div class="section" id="linux-or-macos">
 <h3>Linux or MacOS<a class="headerlink" href="#linux-or-macos" title="Permalink to this headline">¶</a></h3>
-<p>Create a symlink from KLayout to the  kqcircuits package and scripts:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">Path_to_KQCircuits</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">ksqcircuits</span> <span class="o">~/.</span><span class="n">klayout</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">kqcircuits</span>
-<span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">Path_to_KQCircuits</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">scripts</span> <span class="o">~/.</span><span class="n">klayout</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">kqcircuits_scripts</span>
+<p>Create a symlink from KLayout to the kqcircuits package and scripts:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">Path_to_KQCircuits</span><span class="o">/</span><span class="n">klayout_package</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">kqcircuits</span> <span class="o">~/.</span><span class="n">klayout</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">kqcircuits</span>
+<span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">Path_to_KQCircuits</span><span class="o">/</span><span class="n">klayout_package</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">scripts</span> <span class="o">~/.</span><span class="n">klayout</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">kqcircuits_scripts</span>
 </pre></div>
 </div>
 <p>To install the required packages, open a terminal in your KQCircuits folder
@@ -271,9 +282,9 @@ have to create a symlink to there.</p>
 <h3>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h3>
 <p>Create a symlink from KLayout to kqcircuits by opening a command prompt with
 administrator privileges, and do:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">%</span><span class="n">HOMEPATH</span><span class="o">%</span>\<span class="n">KLayout</span>\<span class="n">python</span>
-<span class="n">mklink</span> <span class="o">/</span><span class="n">D</span> <span class="s1">&#39;kqcircuits&#39;</span> <span class="s2">&quot;Path_to_KQCircuits\python\kqcircuits&quot;</span>
-<span class="n">mklink</span> <span class="o">/</span><span class="n">D</span> <span class="s1">&#39;kqcircuits_scripts&#39;</span> <span class="s2">&quot;Path_to_KQCircuits\python\scripts&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">%</span><span class="n">HOMEPATH</span><span class="o">%</span>\<span class="n">KLayout</span>\<span class="n">klayout_package</span>\<span class="n">python</span>
+<span class="n">mklink</span> <span class="o">/</span><span class="n">D</span> <span class="s1">&#39;kqcircuits&#39;</span> <span class="s2">&quot;Path_to_KQCircuits\klayout_package\python\kqcircuits&quot;</span>
+<span class="n">mklink</span> <span class="o">/</span><span class="n">D</span> <span class="s1">&#39;kqcircuits_scripts&#39;</span> <span class="s2">&quot;Path_to_KQCircuits\klayout_package\python\scripts&quot;</span>
 </pre></div>
 </div>
 <p>Install the required packages by opening command prompt in your KQCircuits

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>kqcircuits.chips.multi_face.multi_face &mdash; KQCircuits 3.3.0 documentation</title>
+  <title>kqcircuits.chips.multi_face.multi_face &mdash; KQCircuits 3.4.0 documentation</title>
   
 
   
@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
 
   
+  
+    <link rel="shortcut icon" href="../_static/logo.svg"/>
   
 
   
@@ -34,10 +36,12 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
+    <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="kqcircuits.chips.multi_face.quality_factor_twoface" href="kqcircuits.chips.multi_face.quality_factor_twoface.html" />
@@ -64,6 +68,10 @@
           
             
             
+              <div class="version">
+                3.4.0
+              </div>
+            
           
 
           
@@ -88,6 +96,7 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../start/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/index.html">User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Libraries</a></li>
@@ -115,6 +124,7 @@
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.chips.quality_factor.html">kqcircuits.chips.quality_factor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.chips.sample_holder_test.html">kqcircuits.chips.sample_holder_test</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.chips.shaping.html">kqcircuits.chips.shaping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kqcircuits.chips.simple.html">kqcircuits.chips.simple</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.chips.single_xmons.html">kqcircuits.chips.single_xmons</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.chips.stripes.html">kqcircuits.chips.stripes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.chips.tsv_test.html">kqcircuits.chips.tsv_test</a></li>
@@ -137,6 +147,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../trademarks.html">Trademarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
 </ul>
 
             
@@ -220,18 +231,6 @@
 <p>Produces labels in pixel corners, dicing edge, markers and optionally grid for all chip faces. Contains methods for
 producing launchers in face 0, connectors between faces 0 and 1, and default routing waveguides from the
 launchers to the connectors.</p>
-<dl class="attribute">
-<dt id="kqcircuits.chips.multi_face.multi_face.MultiFace.version">
-<code class="sig-name descname">version</code><em class="property"> = 1</em><a class="headerlink" href="#kqcircuits.chips.multi_face.multi_face.MultiFace.version" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="kqcircuits.chips.multi_face.multi_face.MultiFace.produce_impl">
-<code class="sig-name descname">produce_impl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kqcircuits/chips/multi_face/multi_face.html#MultiFace.produce_impl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kqcircuits.chips.multi_face.multi_face.MultiFace.produce_impl" title="Permalink to this definition">¶</a></dt>
-<dd><p>This method builds the PCell.</p>
-<p>Adds all refpoints to user properties and draws their names to the annotation layer.</p>
-</dd></dl>
-
 <dl class="method">
 <dt id="kqcircuits.chips.multi_face.multi_face.MultiFace.produce_structures">
 <code class="sig-name descname">produce_structures</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kqcircuits/chips/multi_face/multi_face.html#MultiFace.produce_structures"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kqcircuits.chips.multi_face.multi_face.MultiFace.produce_structures" title="Permalink to this definition">¶</a></dt>

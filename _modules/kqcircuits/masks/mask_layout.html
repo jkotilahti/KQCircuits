@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>kqcircuits.masks.mask_layout &mdash; KQCircuits 3.3.0 documentation</title>
+  <title>kqcircuits.masks.mask_layout &mdash; KQCircuits 3.4.0 documentation</title>
   
 
   
@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
 
   
+  
+    <link rel="shortcut icon" href="../../../_static/logo.svg"/>
   
 
   
@@ -34,10 +36,12 @@
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
     
+    <link rel="author" title="About these documents" href="../../../about.html" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
 </head>
@@ -61,6 +65,10 @@
 
           
             
+            
+              <div class="version">
+                3.4.0
+              </div>
             
           
 
@@ -86,12 +94,14 @@
             
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../start/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../support.html">Support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/index.html">User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../developer/index.html">Developer Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../libraries/index.html">Libraries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/kqcircuits.html">API documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../citing.html">Citing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../trademarks.html">Trademarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../about.html">About</a></li>
 </ul>
 
             
@@ -182,7 +192,7 @@
 
 <span class="kn">from</span> <span class="nn">kqcircuits.pya_resolver</span> <span class="kn">import</span> <span class="n">pya</span>
 <span class="kn">from</span> <span class="nn">kqcircuits.defaults</span> <span class="kn">import</span> <span class="n">default_layers</span><span class="p">,</span> <span class="n">default_brand</span><span class="p">,</span> <span class="n">default_faces</span><span class="p">,</span> <span class="n">default_mask_parameters</span><span class="p">,</span> \
-    <span class="n">default_layers_to_mask</span><span class="p">,</span> <span class="n">default_mask_export_layers</span><span class="p">,</span> <span class="n">default_bar_format</span>
+    <span class="n">default_layers_to_mask</span><span class="p">,</span> <span class="n">default_covered_region_excluded_layers</span><span class="p">,</span> <span class="n">default_mask_export_layers</span><span class="p">,</span> <span class="n">default_bar_format</span>
 <span class="kn">from</span> <span class="nn">kqcircuits.util</span> <span class="kn">import</span> <span class="n">merge</span>
 <span class="kn">from</span> <span class="nn">kqcircuits.elements.markers.marker</span> <span class="kn">import</span> <span class="n">Marker</span>
 <span class="kn">from</span> <span class="nn">kqcircuits.elements.mask_marker_fc</span> <span class="kn">import</span> <span class="n">MaskMarkerFc</span>
@@ -202,7 +212,8 @@
 <span class="sd">        version: Mask version</span>
 <span class="sd">        with_grid: Boolean determining if ground grid is generated</span>
 <span class="sd">        face_id: face_id of this mask layout, &quot;b&quot; | &quot;t&quot; | &quot;c&quot;</span>
-<span class="sd">        layers_to_mask: dictionary of layers with mask label postfix for mask border creation</span>
+<span class="sd">        layers_to_mask: dictionary of layers with mask label postfix for mask label and mask covered region creation</span>
+<span class="sd">        covered_region_excluded_layers: list of layers in `layers_to_mask` for which mask covered region is not created</span>
 <span class="sd">        chips_map: List of lists (2D-array) of strings, each string is a chip name (or --- for no chip)</span>
 <span class="sd">        chips_map_legend: Dictionary where keys are chip names, values are chip cells</span>
 <span class="sd">        wafer_rad: Wafer radius</span>
@@ -212,6 +223,7 @@
 <span class="sd">        dice_width: Dicing width for this mask layout</span>
 <span class="sd">        text_margin: Text margin for this mask layout</span>
 <span class="sd">        chip_size: side width of the chips (assuming square chips)</span>
+<span class="sd">        edge_clearance: minimum clearance of outer chips from the edge of the mask, measured from the chip center</span>
 <span class="sd">        chip_box_offset: Offset (pya.DVector) from chip origin of the chip frame boxes for this face</span>
 <span class="sd">        chip_trans: DTrans applied to all chips</span>
 <span class="sd">        mask_name_offset: mask name label offset from default position in vertical direction (float)</span>
@@ -235,6 +247,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">chips_map_legend</span> <span class="o">=</span> <span class="kc">None</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">layers_to_mask</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;layers_to_mask&quot;</span><span class="p">,</span> <span class="n">default_layers_to_mask</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">covered_region_excluded_layers</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;covered_region_excluded_layers&quot;</span><span class="p">,</span>
+                                                        <span class="n">default_covered_region_excluded_layers</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wafer_rad</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;wafer_rad&quot;</span><span class="p">,</span> <span class="n">default_mask_parameters</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">face_id</span><span class="p">][</span><span class="s2">&quot;wafer_rad&quot;</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wafer_center</span> <span class="o">=</span> <span class="p">(</span><span class="n">pya</span><span class="o">.</span><span class="n">DVector</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wafer_rad</span><span class="p">,</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">wafer_rad</span><span class="p">)</span> <span class="o">+</span>
                              <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;wafer_center_offset&quot;</span><span class="p">,</span>
@@ -244,6 +258,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">dice_width</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;dice_width&quot;</span><span class="p">,</span> <span class="n">default_mask_parameters</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">face_id</span><span class="p">][</span><span class="s2">&quot;dice_width&quot;</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">text_margin</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;text_margin&quot;</span><span class="p">,</span> <span class="n">default_mask_parameters</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">face_id</span><span class="p">][</span><span class="s2">&quot;text_margin&quot;</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">chip_size</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;chip_size&quot;</span><span class="p">,</span> <span class="n">default_mask_parameters</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">face_id</span><span class="p">][</span><span class="s2">&quot;chip_size&quot;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">edge_clearance</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;edge_clearance&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">chip_size</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">chip_box_offset</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;chip_box_offset&quot;</span><span class="p">,</span> <span class="n">default_mask_parameters</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">face_id</span><span class="p">][</span><span class="s2">&quot;chip_box_offset&quot;</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">chip_trans</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;chip_trans&quot;</span><span class="p">,</span> <span class="n">default_mask_parameters</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">face_id</span><span class="p">][</span><span class="s2">&quot;chip_trans&quot;</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mask_name_offset</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;mask_name_offset&quot;</span><span class="p">,</span> <span class="n">default_mask_parameters</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">face_id</span><span class="p">][</span>
@@ -315,7 +330,7 @@
 
         <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">row</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tqdm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chips_map</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;Adding chips to mask&#39;</span><span class="p">,</span> <span class="n">bar_format</span><span class="o">=</span><span class="n">default_bar_format</span><span class="p">)):</span>
             <span class="k">for</span> <span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">slot</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
-                <span class="n">position</span> <span class="o">=</span> <span class="n">step_ver</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">step_hor</span> <span class="o">*</span> <span class="n">j</span>
+                <span class="n">position</span> <span class="o">=</span> <span class="n">pya</span><span class="o">.</span><span class="n">DPoint</span><span class="p">(</span><span class="n">step_ver</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">step_hor</span> <span class="o">*</span> <span class="n">j</span><span class="p">)</span>
                 <span class="n">pos_index_name</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">{:02d}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">j</span><span class="p">))</span>
                 <span class="n">added_chip</span><span class="p">,</span> <span class="n">region_chip</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_chip</span><span class="p">(</span><span class="n">labels_cell</span><span class="p">,</span> <span class="n">step_ver</span><span class="p">,</span> <span class="n">step_hor</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">pos_index_name</span><span class="p">,</span>
                                                          <span class="n">slot</span><span class="p">)</span>
@@ -353,20 +368,21 @@
         <span class="c1"># center of the chip at distance self.chip_size from the mask edge</span>
         <span class="n">chip_region</span> <span class="o">=</span> <span class="n">pya</span><span class="o">.</span><span class="n">Region</span><span class="p">()</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">position</span> <span class="o">-</span> <span class="n">step_ver</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="n">step_hor</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">wafer_center</span><span class="p">)</span><span class="o">.</span><span class="n">length</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">wafer_rad</span> <span class="o">&lt;</span> \
-                <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">chip_size</span><span class="p">:</span>
+                <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">edge_clearance</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">slot</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">chips_map_legend</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
                 <span class="n">trans</span> <span class="o">=</span> <span class="n">pya</span><span class="o">.</span><span class="n">DTrans</span><span class="p">(</span><span class="n">position</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">chip_box_offset</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">chip_trans</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">top_cell</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">pya</span><span class="o">.</span><span class="n">DCellInstArray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chips_map_legend</span><span class="p">[</span><span class="n">slot</span><span class="p">]</span><span class="o">.</span><span class="n">cell_index</span><span class="p">(),</span> <span class="n">trans</span><span class="p">))</span>
-                <span class="n">produce_label</span><span class="p">(</span><span class="n">label_cell</span><span class="p">,</span> <span class="n">pos_index_name</span><span class="p">,</span> <span class="n">position</span> <span class="o">+</span> <span class="n">pya</span><span class="o">.</span><span class="n">DVector</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chip_size</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="s2">&quot;bottomright&quot;</span><span class="p">,</span>
-                              <span class="bp">self</span><span class="o">.</span><span class="n">dice_width</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">text_margin</span><span class="p">,</span>
+                <span class="n">trans2</span> <span class="o">=</span> <span class="n">pya</span><span class="o">.</span><span class="n">DTrans</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">chip_trans</span><span class="o">.</span><span class="n">is_mirror</span><span class="p">()</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">chip_trans</span>
+                <span class="n">produce_label</span><span class="p">(</span><span class="n">label_cell</span><span class="p">,</span> <span class="n">pos_index_name</span><span class="p">,</span> <span class="n">trans2</span><span class="o">*</span><span class="p">(</span><span class="n">position</span> <span class="o">+</span> <span class="n">pya</span><span class="o">.</span><span class="n">DVector</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chip_size</span><span class="p">,</span> <span class="mi">0</span><span class="p">)),</span>
+                              <span class="s2">&quot;bottomright&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dice_width</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">text_margin</span><span class="p">,</span>
                               <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_face</span><span class="p">()[</span><span class="s2">&quot;base_metal_gap_wo_grid&quot;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_face</span><span class="p">()[</span><span class="s2">&quot;base_metal_gap_for_EBL&quot;</span><span class="p">]],</span>
                               <span class="bp">self</span><span class="o">.</span><span class="n">_face</span><span class="p">()[</span><span class="s2">&quot;ground_grid_avoidance&quot;</span><span class="p">])</span>
-                <span class="n">trans2</span> <span class="o">=</span> <span class="n">pya</span><span class="o">.</span><span class="n">DTrans</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
-                <span class="n">chip_region</span> <span class="o">=</span> <span class="n">pya</span><span class="o">.</span><span class="n">Region</span><span class="p">(</span><span class="n">pya</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">trans2</span> <span class="o">*</span> <span class="n">pya</span><span class="o">.</span><span class="n">DBox</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">chip_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">chip_size</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span>
+                <span class="n">trans3</span> <span class="o">=</span> <span class="n">trans</span><span class="o">*</span><span class="n">pya</span><span class="o">.</span><span class="n">DTrans</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chip_box_offset</span><span class="p">)</span>
+                <span class="n">chip_region</span> <span class="o">=</span> <span class="n">pya</span><span class="o">.</span><span class="n">Region</span><span class="p">(</span><span class="n">pya</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">trans3</span> <span class="o">*</span> <span class="n">pya</span><span class="o">.</span><span class="n">DBox</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">chip_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">chip_size</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span>
                         <span class="mi">1</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">dbu</span><span class="p">)))</span>
                 <span class="c1"># add graphical representation</span>
                 <span class="n">chip_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_chip_name</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chips_map_legend</span><span class="p">[</span><span class="n">slot</span><span class="p">])</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_add_chip_graphical_representation_layer</span><span class="p">(</span><span class="n">chip_name</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">pos_index_name</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_add_chip_graphical_representation_layer</span><span class="p">(</span><span class="n">chip_name</span><span class="p">,</span> <span class="n">trans2</span> <span class="o">*</span> <span class="n">position</span><span class="p">,</span> <span class="n">pos_index_name</span><span class="p">)</span>
                 <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">chip_region</span>
         <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="n">chip_region</span>
 
@@ -400,8 +416,11 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_add_markers</span><span class="p">(</span><span class="n">maskextra_cell</span><span class="p">,</span> <span class="n">region_covered</span><span class="p">,</span> <span class="n">cell_marker</span><span class="p">,</span> <span class="n">marker_transes</span><span class="p">)</span>
 
         <span class="n">maskextra_cell</span><span class="o">.</span><span class="n">shapes</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">layer</span><span class="p">(</span><span class="n">default_layers</span><span class="p">[</span><span class="s2">&quot;mask_graphical_rep&quot;</span><span class="p">]))</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">region_covered</span><span class="p">)</span>
+        <span class="c1"># remove unwanted circle boundary and filling from `layers_to_mask` which have been excluded in</span>
+        <span class="c1"># `covered_region_excluded_layers`</span>
         <span class="k">for</span> <span class="n">layer_name</span> <span class="ow">in</span> <span class="n">layers_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="n">maskextra_cell</span><span class="o">.</span><span class="n">shapes</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">layer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_face</span><span class="p">()[</span><span class="n">layer_name</span><span class="p">]))</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">region_covered</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">layer_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">covered_region_excluded_layers</span><span class="p">:</span>
+                <span class="n">maskextra_cell</span><span class="o">.</span><span class="n">shapes</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">layer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_face</span><span class="p">()[</span><span class="n">layer_name</span><span class="p">]))</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">region_covered</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">top_cell</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">pya</span><span class="o">.</span><span class="n">DCellInstArray</span><span class="p">(</span><span class="n">maskextra_cell</span><span class="o">.</span><span class="n">cell_index</span><span class="p">(),</span> <span class="n">pya</span><span class="o">.</span><span class="n">DTrans</span><span class="p">()))</span>
 
@@ -414,6 +433,7 @@
         <span class="k">for</span> <span class="n">chip_name</span><span class="p">,</span> <span class="n">cell</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">chips_map_legend</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="k">if</span> <span class="n">search_cell</span> <span class="o">==</span> <span class="n">cell</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">chip_name</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">_add_chip_graphical_representation_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chip_name</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">pos_index_name</span><span class="p">):</span>
         <span class="n">chip_name_text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">create_cell</span><span class="p">(</span><span class="s2">&quot;TEXT&quot;</span><span class="p">,</span> <span class="s2">&quot;Basic&quot;</span><span class="p">,</span> <span class="p">{</span>

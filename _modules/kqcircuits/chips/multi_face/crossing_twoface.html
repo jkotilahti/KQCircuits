@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>kqcircuits.chips.multi_face.crossing_twoface &mdash; KQCircuits 3.3.0 documentation</title>
+  <title>kqcircuits.chips.multi_face.crossing_twoface &mdash; KQCircuits 3.4.0 documentation</title>
   
 
   
@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
 
   
+  
+    <link rel="shortcut icon" href="../../../../_static/logo.svg"/>
   
 
   
@@ -34,10 +36,12 @@
         <script src="../../../../_static/underscore.js"></script>
         <script src="../../../../_static/doctools.js"></script>
         <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
 
     
+    <link rel="author" title="About these documents" href="../../../../about.html" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" /> 
 </head>
@@ -61,6 +65,10 @@
 
           
             
+            
+              <div class="version">
+                3.4.0
+              </div>
             
           
 
@@ -86,12 +94,14 @@
             
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../start/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../support.html">Support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../user_guide/index.html">User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../developer/index.html">Developer Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../libraries/index.html">Libraries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../api/kqcircuits.html">API documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../citing.html">Citing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../trademarks.html">Trademarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html">About</a></li>
 </ul>
 
             
@@ -176,16 +186,10 @@
 <span class="c1"># for individuals (meetiqm.com/developers/clas/individual) and organizations (meetiqm.com/developers/clas/organization).</span>
 
 
-<span class="kn">import</span> <span class="nn">sys</span>
-
-<span class="kn">from</span> <span class="nn">kqcircuits.pya_resolver</span> <span class="kn">import</span> <span class="n">pya</span>
-<span class="kn">from</span> <span class="nn">kqcircuits.util.parameters</span> <span class="kn">import</span> <span class="n">Param</span><span class="p">,</span> <span class="n">pdt</span>
-
 <span class="kn">from</span> <span class="nn">kqcircuits.chips.multi_face.multi_face</span> <span class="kn">import</span> <span class="n">MultiFace</span>
 <span class="kn">from</span> <span class="nn">kqcircuits.elements.waveguide_composite</span> <span class="kn">import</span> <span class="n">WaveguideComposite</span><span class="p">,</span> <span class="n">Node</span>
-
-
-<span class="n">version</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="kn">from</span> <span class="nn">kqcircuits.pya_resolver</span> <span class="kn">import</span> <span class="n">pya</span>
+<span class="kn">from</span> <span class="nn">kqcircuits.util.parameters</span> <span class="kn">import</span> <span class="n">Param</span><span class="p">,</span> <span class="n">pdt</span>
 
 
 <div class="viewcode-block" id="CrossingTwoface"><a class="viewcode-back" href="../../../../api/kqcircuits.chips.multi_face.crossing_twoface.html#kqcircuits.chips.multi_face.crossing_twoface.CrossingTwoface">[docs]</a><span class="k">class</span> <span class="nc">CrossingTwoface</span><span class="p">(</span><span class="n">MultiFace</span><span class="p">):</span>
@@ -266,8 +270,7 @@
             <span class="n">nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Node</span><span class="p">((</span><span class="n">ref_x_1</span><span class="p">,</span> <span class="n">last_y</span><span class="p">),</span> <span class="n">face_id</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">))</span>
             <span class="n">nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Node</span><span class="p">((</span><span class="n">ref_x</span> <span class="o">-</span> <span class="n">wiggle</span><span class="p">,</span> <span class="n">last_y</span><span class="p">)))</span>
             <span class="n">last_y</span> <span class="o">-=</span> <span class="n">step</span>
-        <span class="n">nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Node</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">face1_box</span><span class="o">.</span><span class="n">p1</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="mi">100</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">refpoints</span><span class="p">[</span><span class="s2">&quot;WS_port&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">y</span><span class="p">),</span>
-                          <span class="n">a</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">)),</span>
+        <span class="n">nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Node</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">face1_box</span><span class="o">.</span><span class="n">p1</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="mi">100</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">refpoints</span><span class="p">[</span><span class="s2">&quot;WS_port&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">y</span><span class="p">),</span> <span class="n">a</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">))</span>
         <span class="n">nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Node</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">refpoints</span><span class="p">[</span><span class="s2">&quot;WS_port_corner&quot;</span><span class="p">]))</span>
         <span class="n">nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Node</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">refpoints</span><span class="p">[</span><span class="s2">&quot;WS_port&quot;</span><span class="p">]))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">insert_cell</span><span class="p">(</span><span class="n">WaveguideComposite</span><span class="p">,</span>

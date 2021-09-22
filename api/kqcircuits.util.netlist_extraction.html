@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>kqcircuits.util.netlist_extraction &mdash; KQCircuits 3.3.0 documentation</title>
+  <title>kqcircuits.util.netlist_extraction &mdash; KQCircuits 3.4.0 documentation</title>
   
 
   
@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
 
   
+  
+    <link rel="shortcut icon" href="../_static/logo.svg"/>
   
 
   
@@ -34,10 +36,12 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
+    <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="kqcircuits.util.parameter_helper" href="kqcircuits.util.parameter_helper.html" />
@@ -64,6 +68,10 @@
           
             
             
+              <div class="version">
+                3.4.0
+              </div>
+            
           
 
           
@@ -88,6 +96,7 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../start/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/index.html">User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Libraries</a></li>
@@ -99,6 +108,7 @@
 <li class="toctree-l2"><a class="reference internal" href="kqcircuits.squids.html">kqcircuits.squids</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kqcircuits.test_structures.html">kqcircuits.test_structures</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="kqcircuits.util.html">kqcircuits.util</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="kqcircuits.util.area.html">kqcircuits.util.area</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.util.coupler_lib.html">kqcircuits.util.coupler_lib</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.util.deep_delete.html">kqcircuits.util.deep_delete</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.util.dependencies.html">kqcircuits.util.dependencies</a></li>
@@ -126,6 +136,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../trademarks.html">Trademarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
 </ul>
 
             
@@ -203,6 +214,22 @@
 <dt id="kqcircuits.util.netlist_extraction.export_cell_netlist">
 <code class="sig-prename descclassname">kqcircuits.util.netlist_extraction.</code><code class="sig-name descname">export_cell_netlist</code><span class="sig-paren">(</span><em class="sig-param">cell</em>, <em class="sig-param">filename</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kqcircuits/util/netlist_extraction.html#export_cell_netlist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kqcircuits.util.netlist_extraction.export_cell_netlist" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exports netlist into <cite>filename</cite> in JSON</p>
+<p>The file will have three sections: <code class="docutils literal notranslate"><span class="pre">{&quot;nets&quot;:</span> <span class="pre">{...},</span> <span class="pre">&quot;subcircuits&quot;:</span> <span class="pre">{...},</span> <span class="pre">&quot;circuits&quot;:</span> <span class="pre">{...}}</span></code></p>
+<p>KLayout’s <a class="reference external" href="https://www.klayout.de/doc-qt5/manual/lvs_overview.html">terminology</a> differs
+from the one used in typical EDA tools where we have components (resistors, capacitors, etc.),
+pins (the endpoints of components) and nets (i.e. wires between pins). Components are PCell
+instances, a.k.a. cells, these are called subcircuits in the netlist file.</p>
+<p>The main conceptual difference is that waveguides, that would be analogous to wires, are also
+treated as components. Consequently, a net in the <code class="docutils literal notranslate"><span class="pre">nets</span></code> section usually contains exactly two
+overlapping pins that belong to two different components each identified by a unique
+<code class="docutils literal notranslate"><span class="pre">subcircuit_id</span></code>. One of these is almost always a waveguide. Unconnected pins are not shown
+except for Launchers.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">subcircuits</span></code> section is a dictionary of the used cells: <code class="docutils literal notranslate"><span class="pre">&lt;subcircuit_id&gt;:</span> <span class="pre">{&quot;cell_name&quot;:</span>
+<span class="pre">&quot;...&quot;,</span> <span class="pre">&quot;subcircuit_location&quot;:</span> <span class="pre">[&lt;x&gt;,</span> <span class="pre">&lt;y&gt;]}</span></code>. Where <code class="docutils literal notranslate"><span class="pre">cell_name</span></code> is the name of the used Element
+optionally appended with <code class="docutils literal notranslate"><span class="pre">$&lt;n&gt;</span></code> if there are more than one Elements of the same type.
+Different instances of the same cell will have different <code class="docutils literal notranslate"><span class="pre">subcircuit_id</span></code> but identical
+<code class="docutils literal notranslate"><span class="pre">cell_name</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">circuits</span></code> section maps <code class="docutils literal notranslate"><span class="pre">cell_name</span></code> to a dictionary of the named Element’s parameters.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -229,11 +256,6 @@
 </dd>
 </dl>
 </dd></dl>
-
-<dl class="function">
-<dt id="kqcircuits.util.netlist_extraction.extract_subcircuit">
-<code class="sig-prename descclassname">kqcircuits.util.netlist_extraction.</code><code class="sig-name descname">extract_subcircuit</code><span class="sig-paren">(</span><em class="sig-param">internal_layout</em>, <em class="sig-param">subcircuit</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kqcircuits/util/netlist_extraction.html#extract_subcircuit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kqcircuits.util.netlist_extraction.extract_subcircuit" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 <dl class="function">
 <dt id="kqcircuits.util.netlist_extraction.extract_nets">

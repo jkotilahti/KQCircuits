@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>kqcircuits.elements.spiral_resonator_polygon &mdash; KQCircuits 3.3.0 documentation</title>
+  <title>kqcircuits.elements.spiral_resonator_polygon &mdash; KQCircuits 3.4.0 documentation</title>
   
 
   
@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
 
   
+  
+    <link rel="shortcut icon" href="../_static/logo.svg"/>
   
 
   
@@ -34,10 +36,12 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
+    <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="kqcircuits.elements.spiral_resonator_rectangle" href="kqcircuits.elements.spiral_resonator_rectangle.html" />
@@ -64,6 +68,10 @@
           
             
             
+              <div class="version">
+                3.4.0
+              </div>
+            
           
 
           
@@ -88,6 +96,7 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../start/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/index.html">User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Libraries</a></li>
@@ -137,6 +146,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../trademarks.html">Trademarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
 </ul>
 
             
@@ -226,7 +236,7 @@ then spiral inside the polygon such that each segment will be parallel to one of
 (following the polygon shape), you will need to choose the points such that the edge
 <cite>self.input_path[-1] - self.poly_path[0]</cite> is parallel to the edge <cite>self.poly_path[0] - self.poly_path[-1]</cite>.</p>
 <p>The spacing between waveguides in the spiral can either be chosen manually or automatically. The automatic spacing
-attempts to find the largest possible spacing, and the accuracy/speed of finding it can be adjusted.</p>
+attempts to find the largest possible spacing.</p>
 <p>Airbridges can optionally be placed with a given spacing along the resonator waveguide.</p>
 <dl class="method">
 <dt id="kqcircuits.elements.spiral_resonator_polygon.SpiralResonatorPolygon.produce_impl">
@@ -244,7 +254,6 @@ attempts to find the largest possible spacing, and the accuracy/speed of finding
 <li><p><strong>poly_path</strong><em> (Shape)</em><span> - Polygon path</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">(0,800;1000,0;0,-800)</span> <span class="pre">w=10</span> <span class="pre">bx=0</span> <span class="pre">ex=0</span> <span class="pre">r=false</span></code></p></li>
 <li><p><strong>auto_spacing</strong><em> (Boolean)</em><span> - Use automatic spacing</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
 <li><p><strong>manual_spacing</strong><em> (Double)</em><span> - Manual spacing between waveguide centers</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">300</span></code><em>, unit=</em><code class="docutils literal notranslate"><span class="pre">μm</span></code></p></li>
-<li><p><strong>spacing_tolerance</strong><em> (Double)</em><span> - Automatic spacing optimality tolerance (larger=faster)</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">20</span></code><em>, unit=</em><code class="docutils literal notranslate"><span class="pre">μm</span></code></p></li>
 <li><p><strong>bridges</strong><em> (Boolean)</em><span> - Airbridges</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
 <li><p><strong>bridge_spacing</strong><em> (Double)</em><span> - Airbridge spacing</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">300</span></code><em>, unit=</em><code class="docutils literal notranslate"><span class="pre">μm</span></code></p></li>
 <li><p><strong>term1</strong><em> (Double)</em><span> - Termination length start</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">0</span></code><em>, unit=</em><code class="docutils literal notranslate"><span class="pre">μm</span></code></p></li>

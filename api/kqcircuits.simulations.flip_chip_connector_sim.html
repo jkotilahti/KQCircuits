@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>kqcircuits.simulations.flip_chip_connector_sim &mdash; KQCircuits 3.3.0 documentation</title>
+  <title>kqcircuits.simulations.flip_chip_connector_sim &mdash; KQCircuits 3.4.0 documentation</title>
   
 
   
@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
 
   
+  
+    <link rel="shortcut icon" href="../_static/logo.svg"/>
   
 
   
@@ -34,10 +36,12 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
+    <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="kqcircuits.simulations.port" href="kqcircuits.simulations.port.html" />
@@ -64,6 +68,10 @@
           
             
             
+              <div class="version">
+                3.4.0
+              </div>
+            
           
 
           
@@ -88,6 +96,7 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../start/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/index.html">User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Libraries</a></li>
@@ -97,6 +106,7 @@
 <li class="toctree-l2"><a class="reference internal" href="kqcircuits.masks.html">kqcircuits.masks</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="kqcircuits.simulations.html">kqcircuits.simulations</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.simulations.export.html">kqcircuits.simulations.export</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kqcircuits.simulations.circular_capacitor_sim.html">kqcircuits.simulations.circular_capacitor_sim</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.simulations.empty_simulation.html">kqcircuits.simulations.empty_simulation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.simulations.finger_capacitor_sim.html">kqcircuits.simulations.finger_capacitor_sim</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">kqcircuits.simulations.flip_chip_connector_sim</a></li>
@@ -120,6 +130,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../trademarks.html">Trademarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
 </ul>
 
             
@@ -231,8 +242,10 @@ simulated and add any ports to <cite>self.ports</cite>.</p>
 <strong>PCell parameters:</strong><div class="line"><br /></div>
 <ul class="simple">
 <li><p><strong>connector_type</strong><em> (String)</em><span> - Connector type</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">Coax</span></code><em>, choices=</em><code class="docutils literal notranslate"><span class="pre">['Single',</span> <span class="pre">'GSG',</span> <span class="pre">'Coax']</span></code></p></li>
-<li><p><strong>inter_bump_distance</strong><em> (Double)</em><span> - Distance between In bumps </span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">100</span></code><em>, unit=</em><code class="docutils literal notranslate"><span class="pre">μm</span></code></p></li>
+<li><p><strong>inter_bump_distance</strong><em> (Double)</em><span> - Distance between In bumps</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">100</span></code><em>, unit=</em><code class="docutils literal notranslate"><span class="pre">μm</span></code></p></li>
 <li><p><strong>output_rotation</strong><em> (Double)</em><span> - Rotation of output port w.r.t. input port</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">180</span></code><em>, unit=</em><code class="docutils literal notranslate"><span class="pre">degrees</span></code></p></li>
+<li><p><strong>a2</strong><em> (Double)</em><span> - Width of flip-chip center conductor</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">40</span></code><em>, unit=</em><code class="docutils literal notranslate"><span class="pre">μm</span></code></p></li>
+<li><p><strong>b2</strong><em> (Double)</em><span> - Width of flip-chip center gap</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">40</span></code><em>, unit=</em><code class="docutils literal notranslate"><span class="pre">μm</span></code></p></li>
 </ul>
 <img alt="../_images/kqcircuits.simulations.flip_chip_connector_sim.png" src="../_images/kqcircuits.simulations.flip_chip_connector_sim.png" />
 </div>

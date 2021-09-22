@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>kqcircuits.elements.waveguide_coplanar &mdash; KQCircuits 3.3.0 documentation</title>
+  <title>kqcircuits.elements.waveguide_coplanar &mdash; KQCircuits 3.4.0 documentation</title>
   
 
   
@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
 
   
+  
+    <link rel="shortcut icon" href="../_static/logo.svg"/>
   
 
   
@@ -34,10 +36,12 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
+    <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="kqcircuits.elements.waveguide_coplanar_curved" href="kqcircuits.elements.waveguide_coplanar_curved.html" />
@@ -64,6 +68,10 @@
           
             
             
+              <div class="version">
+                3.4.0
+              </div>
+            
           
 
           
@@ -88,6 +96,7 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../start/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/index.html">User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Libraries</a></li>
@@ -137,6 +146,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../citing.html">Citing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../trademarks.html">Trademarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
 </ul>
 
             
@@ -216,9 +226,12 @@
 <dd><p>Bases: <a class="reference internal" href="kqcircuits.elements.element.html#kqcircuits.elements.element.Element" title="kqcircuits.elements.element.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">kqcircuits.elements.element.Element</span></code></a></p>
 <p>The PCell declaration for an arbitrary coplanar waveguide.</p>
 <p>Coplanar waveguide defined by the width of the center conductor and gap. It can follow any segmented lines with
-predefined bending radios. It actually consists of straight and bent PCells. Warning: Arbitrary angle bents
-actually have very small gaps between bends and straight segments due to precision of arithmetic. To be fixed in a
-future release.</p>
+predefined bending radios. It actually consists of straight and bent PCells.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Arbitrary angle bents can have very small gaps between bends and straight segments due to
+precision of arithmetic. Small positive value of corner_safety_overlap can avoid these gaps.</p>
+</div>
 <dl class="method">
 <dt id="kqcircuits.elements.waveguide_coplanar.WaveguideCoplanar.can_create_from_shape_impl">
 <code class="sig-name descname">can_create_from_shape_impl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kqcircuits/elements/waveguide_coplanar.html#WaveguideCoplanar.can_create_from_shape_impl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kqcircuits.elements.waveguide_coplanar.WaveguideCoplanar.can_create_from_shape_impl" title="Permalink to this definition">¶</a></dt>
