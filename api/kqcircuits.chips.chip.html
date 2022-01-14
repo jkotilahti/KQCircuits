@@ -111,6 +111,7 @@
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.chips.empty.html">kqcircuits.chips.empty</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.chips.junction_test.html">kqcircuits.chips.junction_test</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.chips.junction_test2.html">kqcircuits.chips.junction_test2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kqcircuits.chips.launchers.html">kqcircuits.chips.launchers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.chips.lithography_test.html">kqcircuits.chips.lithography_test</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.chips.quality_factor.html">kqcircuits.chips.quality_factor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.chips.sample_holder_test.html">kqcircuits.chips.sample_holder_test</a></li>
@@ -125,6 +126,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="kqcircuits.elements.html">kqcircuits.elements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kqcircuits.masks.html">kqcircuits.masks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kqcircuits.qubits.html">kqcircuits.qubits</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kqcircuits.simulations.html">kqcircuits.simulations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kqcircuits.squids.html">kqcircuits.squids</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kqcircuits.test_structures.html">kqcircuits.test_structures</a></li>
@@ -265,88 +267,6 @@ optionally grid. Production of the chip frames can be adjusted by overriding the
 </dd></dl>
 
 <dl class="method">
-<dt id="kqcircuits.chips.chip.Chip.produce_launcher">
-<code class="sig-name descname">produce_launcher</code><span class="sig-paren">(</span><em class="sig-param">pos</em>, <em class="sig-param">direction</em>, <em class="sig-param">name</em>, <em class="sig-param">port_id</em>, <em class="sig-param">width</em>, <em class="sig-param">gap</em>, <em class="sig-param">launcher_type='RF'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kqcircuits/chips/chip.html#Chip.produce_launcher"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kqcircuits.chips.chip.Chip.produce_launcher" title="Permalink to this definition">¶</a></dt>
-<dd><p>Inserts a launcher in the chip.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>pos</strong> – position of the launcher</p></li>
-<li><p><strong>direction</strong> – float rotation in degrees, or one of “E”, “W”, “S”, “N”</p></li>
-<li><p><strong>name</strong> – name inserted as property “id” in the launcher</p></li>
-<li><p><strong>port_id</strong> – id inserted as property “port_id” in the launcher</p></li>
-<li><p><strong>width</strong> – controls the pad width and tapering length of the launcher</p></li>
-<li><p><strong>gap</strong> – controls the gap from pad to ground</p></li>
-<li><p><strong>launcher_type</strong> – type of the launcher, “RF” or “DC”</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="kqcircuits.chips.chip.Chip.produce_launchers_SMA8">
-<code class="sig-name descname">produce_launchers_SMA8</code><span class="sig-paren">(</span><em class="sig-param">enabled=['WS', 'WN', 'ES', 'EN', 'SW', 'SE', 'NW', 'NE'], launcher_assignments=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kqcircuits/chips/chip.html#Chip.produce_launchers_SMA8"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kqcircuits.chips.chip.Chip.produce_launchers_SMA8" title="Permalink to this definition">¶</a></dt>
-<dd><p>Produces enabled launchers for SMA8 sample holder default locations.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>enabled</strong> – List of enabled standard launchers from set (“WS”, “WN”, “ES”, “EN”, “SW”, “SE”, “NW”, “NE”)</p></li>
-<li><p><strong>launcher_assignments</strong> – dictionary of (port_id: name) that assigns a role to some of the launchers</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="simple">
-<dt>Effect:</dt><dd><p>launchers PCells added to the class parent cell.</p>
-</dd>
-</dl>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>launchers as a dictionary <code class="code docutils literal notranslate"><span class="pre">{name:</span> <span class="pre">(point,</span> <span class="pre">heading,</span> <span class="pre">distance</span> <span class="pre">from</span> <span class="pre">chip</span> <span class="pre">edge)}</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="kqcircuits.chips.chip.Chip.produce_launchers_ARD24">
-<code class="sig-name descname">produce_launchers_ARD24</code><span class="sig-paren">(</span><em class="sig-param">launcher_assignments=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kqcircuits/chips/chip.html#Chip.produce_launchers_ARD24"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kqcircuits.chips.chip.Chip.produce_launchers_ARD24" title="Permalink to this definition">¶</a></dt>
-<dd><p>Produces launchers for ARD24 sample holder default locations.</p>
-<blockquote>
-<div><dl class="simple">
-<dt>Args:</dt><dd><p>launcher_assignments: dictionary of (port_id: name) that assigns a role to some of the launchers</p>
-</dd>
-</dl>
-</div></blockquote>
-<dl class="simple">
-<dt>Effect:</dt><dd><p>launchers PCells added to the class parent cell.</p>
-</dd>
-</dl>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>launchers as a dictionary <code class="code docutils literal notranslate"><span class="pre">{name:</span> <span class="pre">(point,</span> <span class="pre">heading,</span> <span class="pre">distance</span> <span class="pre">from</span> <span class="pre">chip</span> <span class="pre">edge)}</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="kqcircuits.chips.chip.Chip.produce_launchers_RF80">
-<code class="sig-name descname">produce_launchers_RF80</code><span class="sig-paren">(</span><em class="sig-param">launcher_assignments=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kqcircuits/chips/chip.html#Chip.produce_launchers_RF80"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kqcircuits.chips.chip.Chip.produce_launchers_RF80" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="kqcircuits.chips.chip.Chip.produce_launchers_DC">
-<code class="sig-name descname">produce_launchers_DC</code><span class="sig-paren">(</span><em class="sig-param">launcher_assignments=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kqcircuits/chips/chip.html#Chip.produce_launchers_DC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kqcircuits.chips.chip.Chip.produce_launchers_DC" title="Permalink to this definition">¶</a></dt>
-<dd><p>Produces launchers for DC sample holder default locations.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>launcher_assignments</strong> – dictionary of (port_id: name) that assigns a role to some of the launchers</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>launchers as a dictionary <code class="code docutils literal notranslate"><span class="pre">{name:</span> <span class="pre">(point,</span> <span class="pre">heading,</span> <span class="pre">distance</span> <span class="pre">from</span> <span class="pre">chip</span> <span class="pre">edge)}</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
 <dt id="kqcircuits.chips.chip.Chip.produce_junction_tests">
 <code class="sig-name descname">produce_junction_tests</code><span class="sig-paren">(</span><em class="sig-param">squid_type='QCD1'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kqcircuits/chips/chip.html#Chip.produce_junction_tests"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kqcircuits.chips.chip.Chip.produce_junction_tests" title="Permalink to this definition">¶</a></dt>
 <dd><p>Produces junction test pads in the chip.</p>
@@ -367,7 +287,7 @@ optionally grid. Production of the chip frames can be adjusted by overriding the
 <dt id="kqcircuits.chips.chip.Chip.produce_ground_grid">
 <code class="sig-name descname">produce_ground_grid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kqcircuits/chips/chip.html#Chip.produce_ground_grid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kqcircuits.chips.chip.Chip.produce_ground_grid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Produces ground grid on the face of the element.</p>
-<p>This method is called in produce_impl(). Override this method to produce a different set of chip frames.</p>
+<p>This method is called in build(). Override this method to produce a different set of chip frames.</p>
 </dd></dl>
 
 <dl class="method">
@@ -403,7 +323,7 @@ optionally grid. Production of the chip frames can be adjusted by overriding the
 <code class="sig-name descname">merge_layout_layers_on_face</code><span class="sig-paren">(</span><em class="sig-param">face</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kqcircuits/chips/chip.html#Chip.merge_layout_layers_on_face"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kqcircuits.chips.chip.Chip.merge_layout_layers_on_face" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shapes in “base_metal_gap” layer must be created by combining the “base_metal_gap_wo_grid” and
 “ground_grid” layers even if no grid is generated</p>
-<p>This method is called in produce_impl(). Override this method to produce a different set of chip frames.</p>
+<p>This method is called in build(). Override this method to produce a different set of chip frames.</p>
 </dd></dl>
 
 <dl class="method">
@@ -417,36 +337,87 @@ optionally grid. Production of the chip frames can be adjusted by overriding the
 <dt id="kqcircuits.chips.chip.Chip.produce_structures">
 <code class="sig-name descname">produce_structures</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kqcircuits/chips/chip.html#Chip.produce_structures"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kqcircuits.chips.chip.Chip.produce_structures" title="Permalink to this definition">¶</a></dt>
 <dd><p>Produces chip frame and possibly other structures before the ground grid.</p>
-<p>This method is called in produce_impl(). Override this method to produce a different set of chip frames.</p>
+<p>This method is called in build(). Override this method to produce a different set of chip frames.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="kqcircuits.chips.chip.Chip.produce_impl">
-<code class="sig-name descname">produce_impl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kqcircuits/chips/chip.html#Chip.produce_impl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kqcircuits.chips.chip.Chip.produce_impl" title="Permalink to this definition">¶</a></dt>
-<dd><p>This method builds the PCell.</p>
-<p>Adds all refpoints to user properties and draws their names to the annotation layer.</p>
+<dt id="kqcircuits.chips.chip.Chip.build">
+<code class="sig-name descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kqcircuits/chips/chip.html#Chip.build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kqcircuits.chips.chip.Chip.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Child classes re-define this method to build the PCell.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="kqcircuits.chips.chip.Chip.produce_n_launchers">
-<code class="sig-name descname">produce_n_launchers</code><span class="sig-paren">(</span><em class="sig-param">n</em>, <em class="sig-param">launcher_type</em>, <em class="sig-param">launcher_width</em>, <em class="sig-param">launcher_gap</em>, <em class="sig-param">launcher_indent</em>, <em class="sig-param">launcher_assignments</em>, <em class="sig-param">pad_pitch</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kqcircuits/chips/chip.html#Chip.produce_n_launchers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kqcircuits.chips.chip.Chip.produce_n_launchers" title="Permalink to this definition">¶</a></dt>
-<dd><p>Produces n launchers at default locations.</p>
+<dt id="kqcircuits.chips.chip.Chip.produce_launchers">
+<code class="sig-name descname">produce_launchers</code><span class="sig-paren">(</span><em class="sig-param">sampleholder_type</em>, <em class="sig-param">launcher_assignments=None</em>, <em class="sig-param">enabled=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kqcircuits/chips/chip.html#Chip.produce_launchers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kqcircuits.chips.chip.Chip.produce_launchers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produces launchers for typical sample holders.</p>
+<p>This is a wrapper around <code class="docutils literal notranslate"><span class="pre">produce_n_launchers()</span></code> to generate typical launcher configurations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>n</strong> – number of launcher pads</p></li>
-<li><p><strong>launcher_type</strong> – type of the launchers, “RF” or “DC”</p></li>
-<li><p><strong>launcher_width</strong> – width of the launchers</p></li>
-<li><p><strong>launcher_gap</strong> – pad to ground gap of the launchers</p></li>
-<li><p><strong>launcher_indent</strong> – distance between the chip edge and pad port</p></li>
-<li><p><strong>launcher_assignments</strong> – dictionary of (port_id: name) that assigns a role to some of the launchers</p></li>
-<li><p><strong>pad_pitch</strong> – distance between pad centers</p></li>
+<li><p><strong>sampleholder_type</strong> – name of the sample holder type</p></li>
+<li><p><strong>launcher_assignments</strong> – dictionary of (port_id: name) that assigns a name to some of the launchers</p></li>
+<li><p><strong>enabled</strong> – list of enabled launchers, empty means all</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>launchers as a dictionary <code class="code docutils literal notranslate"><span class="pre">{name:</span> <span class="pre">(point,</span> <span class="pre">heading,</span> <span class="pre">distance</span> <span class="pre">from</span> <span class="pre">chip</span> <span class="pre">edge)}</span></code></p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="kqcircuits.chips.chip.Chip.produce_n_launchers">
+<code class="sig-name descname">produce_n_launchers</code><span class="sig-paren">(</span><em class="sig-param">n</em>, <em class="sig-param">launcher_type</em>, <em class="sig-param">launcher_width</em>, <em class="sig-param">launcher_gap</em>, <em class="sig-param">launcher_indent</em>, <em class="sig-param">pad_pitch</em>, <em class="sig-param">launcher_assignments=None</em>, <em class="sig-param">enabled=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kqcircuits/chips/chip.html#Chip.produce_n_launchers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kqcircuits.chips.chip.Chip.produce_n_launchers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produces n launchers at default locations.</p>
+<p>Launcher pads are equally distributed around the chip. This may be overridden by specifying
+the number of pads desired per chip side if <code class="docutils literal notranslate"><span class="pre">n</span></code> is an array of 4 numbers.</p>
+<p>Pads not in <code class="docutils literal notranslate"><span class="pre">launcher_assignments</span></code> are disabled by default. The <code class="docutils literal notranslate"><span class="pre">enabled</span></code> argument may
+override this. If neither argument is defined then all pads are enabled with default names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> – number of launcher pads or an array of pad numbers per side</p></li>
+<li><p><strong>launcher_type</strong> – type of the launchers, “RF” or “DC”</p></li>
+<li><p><strong>launcher_width</strong> – width of the launchers</p></li>
+<li><p><strong>launcher_gap</strong> – pad to ground gap of the launchers</p></li>
+<li><p><strong>launcher_indent</strong> – distance between the chip edge and pad port</p></li>
+<li><p><strong>pad_pitch</strong> – distance between pad centers</p></li>
+<li><p><strong>launcher_assignments</strong> – dictionary of (port_id: name) that assigns a name to some of the launchers</p></li>
+<li><p><strong>enabled</strong> – optional list of enabled launchers</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>launchers as a dictionary <code class="code docutils literal notranslate"><span class="pre">{name:</span> <span class="pre">(point,</span> <span class="pre">heading,</span> <span class="pre">distance</span> <span class="pre">from</span> <span class="pre">chip</span> <span class="pre">edge)}</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="kqcircuits.chips.chip.Chip.make_grid_locations">
+<code class="sig-name descname">make_grid_locations</code><span class="sig-paren">(</span><em class="sig-param">box</em>, <em class="sig-param">delta_x=100</em>, <em class="sig-param">delta_y=100</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kqcircuits/chips/chip.html#Chip.make_grid_locations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kqcircuits.chips.chip.Chip.make_grid_locations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define the locations for a grid. This method returns the full grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>box</strong> – DBox specifying a region for a grid</p></li>
+<li><p><strong>delta_x</strong> – Int or float specifying the grid separation along the x dimension</p></li>
+<li><p><strong>delta_y</strong> – Int or float specifying the grid separation along the y dimension</p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns: list of DPoint coordinates for the grid.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="kqcircuits.chips.chip.Chip.get_ground_tsv_locations">
+<code class="sig-name descname">get_ground_tsv_locations</code><span class="sig-paren">(</span><em class="sig-param">tsv_box</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kqcircuits/chips/chip.html#Chip.get_ground_tsv_locations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kqcircuits.chips.chip.Chip.get_ground_tsv_locations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define the locations for a grid. This method returns the full grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>box</strong> – DBox specifying the region that should be filled with TSVs</p>
+</dd>
+</dl>
+<p>Returns: list of DPoint coordinates where a ground bump can be placed</p>
 </dd></dl>
 
 </dd></dl>
@@ -460,6 +431,12 @@ optionally grid. Production of the chip frames can be adjusted by overriding the
 <li><p><strong>name_chip</strong><em> (String)</em><span> - Name of the chip</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">CTest</span></code></p></li>
 <li><p><strong>name_copy</strong><em> (String)</em><span> - Name of the copy</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
 <li><p><strong>dice_grid_margin</strong><em> (Double)</em><span> - Margin between dicing edge and ground grid</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">100</span></code></p></li>
+<li><p><strong>marker_types</strong><em> (List)</em><span> - Marker type for each chip corner, starting from lower left and going clockwise</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">['Marker</span> <span class="pre">Standard',</span> <span class="pre">'Marker</span> <span class="pre">Standard',</span> <span class="pre">'Marker</span> <span class="pre">Standard',</span> <span class="pre">'Marker</span> <span class="pre">Standard']</span></code></p></li>
+<li><p><strong>with_gnd_tsvs</strong><em> (Boolean)</em><span> - Make ground TSVs</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p><strong>tsv_grid_spacing</strong><em> (Double)</em><span> - TSV grid distance (center to center)</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">300</span></code><em>, unit=</em><code class="docutils literal notranslate"><span class="pre">[μm]</span></code></p></li>
+<li><p><strong>tsv_edge_to_tsv_edge_separation</strong><em> (Double)</em><span> - Ground TSV clearance to manually placed TSVs (edge to edge)</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">250</span></code><em>, unit=</em><code class="docutils literal notranslate"><span class="pre">[μm]</span></code></p></li>
+<li><p><strong>tsv_edge_to_nearest_element</strong><em> (Double)</em><span> - Ground TSV clearance to other elements (edge to edge)</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">100</span></code><em>, unit=</em><code class="docutils literal notranslate"><span class="pre">[μm]</span></code></p></li>
+<li><p><strong>edge_from_tsv</strong><em> (Double)</em><span> - Ground TSV center clearance to chip edge</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">550</span></code><em>, unit=</em><code class="docutils literal notranslate"><span class="pre">[μm]</span></code></p></li>
 </ul>
 <img alt="../_images/kqcircuits.chips.chip.png" src="../_images/kqcircuits.chips.chip.png" />
 </div>

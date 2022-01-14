@@ -113,7 +113,6 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.elements.markers.html">kqcircuits.elements.markers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kqcircuits.elements.qubits.html">kqcircuits.elements.qubits</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.elements.airbridge_connection.html">kqcircuits.elements.airbridge_connection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.elements.chip_frame.html">kqcircuits.elements.chip_frame</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.elements.circular_capacitor.html">kqcircuits.elements.circular_capacitor</a></li>
@@ -139,6 +138,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="kqcircuits.masks.html">kqcircuits.masks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kqcircuits.qubits.html">kqcircuits.qubits</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kqcircuits.simulations.html">kqcircuits.simulations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kqcircuits.squids.html">kqcircuits.squids</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kqcircuits.test_structures.html">kqcircuits.test_structures</a></li>
@@ -234,16 +234,16 @@
 <dd><p>Bases: <a class="reference internal" href="kqcircuits.elements.fluxlines.fluxline.html#kqcircuits.elements.fluxlines.fluxline.Fluxline" title="kqcircuits.elements.fluxlines.fluxline.Fluxline"><code class="xref py py-class docutils literal notranslate"><span class="pre">kqcircuits.elements.fluxlines.fluxline.Fluxline</span></code></a></p>
 <p>Fluxline variant “straight vertical”.</p>
 <dl class="method">
-<dt id="kqcircuits.elements.fluxlines.fluxline_straight.FluxlineStraight.produce_impl">
-<code class="sig-name descname">produce_impl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kqcircuits/elements/fluxlines/fluxline_straight.html#FluxlineStraight.produce_impl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kqcircuits.elements.fluxlines.fluxline_straight.FluxlineStraight.produce_impl" title="Permalink to this definition">¶</a></dt>
-<dd><p>This method builds the PCell.</p>
-<p>Adds all refpoints to user properties and draws their names to the annotation layer.</p>
+<dt id="kqcircuits.elements.fluxlines.fluxline_straight.FluxlineStraight.build">
+<code class="sig-name descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kqcircuits/elements/fluxlines/fluxline_straight.html#FluxlineStraight.build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kqcircuits.elements.fluxlines.fluxline_straight.FluxlineStraight.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Child classes re-define this method to build the PCell.</p>
 </dd></dl>
 
 </dd></dl>
 
 <strong>PCell parameters:</strong><div class="line"><br /></div>
 <ul class="simple">
+<li><p><strong>fluxline_width</strong><em> (Double)</em><span> - Fluxline width</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">0</span></code><em>, unit=</em><code class="docutils literal notranslate"><span class="pre">μm</span></code></p></li>
 <li><p><strong>fluxline_gap_width</strong><em> (Double)</em><span> - Fluxline gap width</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">3</span></code><em>, unit=</em><code class="docutils literal notranslate"><span class="pre">μm</span></code></p></li>
 </ul>
 <img alt="../_images/kqcircuits.elements.fluxlines.fluxline_straight.png" src="../_images/kqcircuits.elements.fluxlines.fluxline_straight.png" />
