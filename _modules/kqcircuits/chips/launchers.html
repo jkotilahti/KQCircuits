@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
 
   
@@ -32,11 +34,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -187,14 +188,16 @@
 
 
 <span class="kn">from</span> <span class="nn">kqcircuits.chips.chip</span> <span class="kn">import</span> <span class="n">Chip</span>
+<span class="kn">from</span> <span class="nn">kqcircuits.defaults</span> <span class="kn">import</span> <span class="n">default_sampleholders</span>
 <span class="kn">from</span> <span class="nn">kqcircuits.util.parameters</span> <span class="kn">import</span> <span class="n">Param</span><span class="p">,</span> <span class="n">pdt</span>
+
+<span class="n">sampleholder_type_choices</span> <span class="o">=</span> <span class="p">[[</span><span class="n">name</span><span class="p">,</span> <span class="n">name</span><span class="p">]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">default_sampleholders</span><span class="p">]</span>
 
 
 <div class="viewcode-block" id="Launchers"><a class="viewcode-back" href="../../../api/kqcircuits.chips.launchers.html#kqcircuits.chips.launchers.Launchers">[docs]</a><span class="k">class</span> <span class="nc">Launchers</span><span class="p">(</span><span class="n">Chip</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;The PCell declaration for a chip with predefined launchers.&quot;&quot;&quot;</span>
 
-    <span class="n">sampleholder_type</span> <span class="o">=</span> <span class="n">Param</span><span class="p">(</span><span class="n">pdt</span><span class="o">.</span><span class="n">TypeString</span><span class="p">,</span> <span class="s2">&quot;Type of the launchers&quot;</span><span class="p">,</span> <span class="s2">&quot;SMA8&quot;</span><span class="p">,</span>
-                              <span class="n">choices</span><span class="o">=</span><span class="p">[[</span><span class="s2">&quot;SMA8&quot;</span><span class="p">,</span> <span class="s2">&quot;SMA8&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;ARD24&quot;</span><span class="p">,</span> <span class="s2">&quot;ARD24&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;RF80&quot;</span><span class="p">,</span> <span class="s2">&quot;RF80&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;DC24&quot;</span><span class="p">,</span> <span class="s2">&quot;DC24&quot;</span><span class="p">]])</span>
+    <span class="n">sampleholder_type</span> <span class="o">=</span> <span class="n">Param</span><span class="p">(</span><span class="n">pdt</span><span class="o">.</span><span class="n">TypeString</span><span class="p">,</span> <span class="s2">&quot;Type of the launchers&quot;</span><span class="p">,</span> <span class="s2">&quot;SMA8&quot;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="n">sampleholder_type_choices</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Launchers.build"><a class="viewcode-back" href="../../../api/kqcircuits.chips.launchers.html#kqcircuits.chips.launchers.Launchers.build">[docs]</a>    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">produce_launchers</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sampleholder_type</span><span class="p">)</span>
@@ -210,7 +213,7 @@
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2021, IQM.
+        &#169; Copyright 2021-2022, IQM.
 
     </p>
   </div>

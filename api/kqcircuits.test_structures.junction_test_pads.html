@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
 
   
@@ -32,11 +34,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -201,14 +202,14 @@
             
   <div class="section" id="module-kqcircuits.test_structures.junction_test_pads">
 <span id="kqcircuits-test-structures-junction-test-pads"></span><h1>kqcircuits.test_structures.junction_test_pads<a class="headerlink" href="#module-kqcircuits.test_structures.junction_test_pads" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="kqcircuits.test_structures.junction_test_pads.JunctionTestPads">
-<em class="property">class </em><code class="sig-prename descclassname">kqcircuits.test_structures.junction_test_pads.</code><code class="sig-name descname">JunctionTestPads</code><a class="reference internal" href="../_modules/kqcircuits/test_structures/junction_test_pads.html#JunctionTestPads"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kqcircuits.test_structures.junction_test_pads.JunctionTestPads" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="kqcircuits.test_structures.junction_test_pads.JunctionTestPads">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">kqcircuits.test_structures.junction_test_pads.</span></span><span class="sig-name descname"><span class="pre">JunctionTestPads</span></span><a class="reference internal" href="../_modules/kqcircuits/test_structures/junction_test_pads.html#JunctionTestPads"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kqcircuits.test_structures.junction_test_pads.JunctionTestPads" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="kqcircuits.test_structures.test_structure.html#kqcircuits.test_structures.test_structure.TestStructure" title="kqcircuits.test_structures.test_structure.TestStructure"><code class="xref py py-class docutils literal notranslate"><span class="pre">kqcircuits.test_structures.test_structure.TestStructure</span></code></a></p>
 <p>Base class for junction test structures.</p>
-<dl class="method">
-<dt id="kqcircuits.test_structures.junction_test_pads.JunctionTestPads.produce_squid">
-<code class="sig-name descname">produce_squid</code><span class="sig-paren">(</span><em class="sig-param">transf</em>, <em class="sig-param">**parameters</em><span class="sig-paren">)</span><a class="headerlink" href="#kqcircuits.test_structures.junction_test_pads.JunctionTestPads.produce_squid" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="kqcircuits.test_structures.junction_test_pads.JunctionTestPads.produce_squid">
+<span class="sig-name descname"><span class="pre">produce_squid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transf</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#kqcircuits.test_structures.junction_test_pads.JunctionTestPads.produce_squid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Produces the squid.</p>
 <p>Creates the squid cell and inserts it with the given transformation as a subcell. Also inserts the squid parts
 in “base_metal_gap_wo_grid”-layer to “base_metal_gap_for_EBL”-layer.</p>
@@ -230,9 +231,9 @@ in “base_metal_gap_wo_grid”-layer to “base_metal_gap_for_EBL”-layer.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="kqcircuits.test_structures.junction_test_pads.JunctionTestPads.create">
-<em class="property">classmethod </em><code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param">layout</em>, <em class="sig-param">library=None</em>, <em class="sig-param">junction_test_type=None</em>, <em class="sig-param">**parameters</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kqcircuits/test_structures/junction_test_pads.html#JunctionTestPads.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kqcircuits.test_structures.junction_test_pads.JunctionTestPads.create" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="kqcircuits.test_structures.junction_test_pads.JunctionTestPads.create">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layout</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">library</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">junction_test_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kqcircuits/test_structures/junction_test_pads.html#JunctionTestPads.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kqcircuits.test_structures.junction_test_pads.JunctionTestPads.create" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a JunctionTestPads cell in layout.</p>
 <p>If junction_test_type is unknown the default is returned.</p>
 <p>Overrides Element.create(), so that functions like add_element() and insert_cell() will call this instead.</p>
@@ -258,7 +259,6 @@ in “base_metal_gap_wo_grid”-layer to “base_metal_gap_for_EBL”-layer.</p>
 <li><p><strong>pad_width</strong><em> (Double)</em><span> - Pad width</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">500</span></code><em>, unit=</em><code class="docutils literal notranslate"><span class="pre">μm</span></code></p></li>
 <li><p><strong>area_height</strong><em> (Double)</em><span> - Area height</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">1900</span></code><em>, unit=</em><code class="docutils literal notranslate"><span class="pre">μm</span></code></p></li>
 <li><p><strong>area_width</strong><em> (Double)</em><span> - Area width</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">1300</span></code><em>, unit=</em><code class="docutils literal notranslate"><span class="pre">μm</span></code></p></li>
-<li><p><strong>squid_type</strong><em> (String)</em><span> - SQUID Type</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">QCD1</span></code><em>, choices=</em><code class="docutils literal notranslate"><span class="pre">['NoSquid',</span> <span class="pre">'QCD1',</span> <span class="pre">'QCD2',</span> <span class="pre">'QCD3',</span> <span class="pre">'Sim',</span> <span class="pre">'SIM1']</span></code></p></li>
 <li><p><strong>junctions_horizontal</strong><em> (Boolean)</em><span> - Horizontal (True) or vertical (False) junctions</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
 <li><p><strong>pad_spacing</strong><em> (Double)</em><span> - Spacing between different pad pairs</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">100</span></code><em>, unit=</em><code class="docutils literal notranslate"><span class="pre">μm</span></code></p></li>
 <li><p><strong>only_pads</strong><em> (Boolean)</em><span> - Only produce pads, no junctions</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
@@ -267,6 +267,7 @@ in “base_metal_gap_wo_grid”-layer to “base_metal_gap_for_EBL”-layer.</p>
 <li><p><strong>junction_widths</strong><em> (List)</em><span> - Override the junction widths with these values.</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">[]</span></code></p></li>
 <li><p><strong>mirror_squid</strong><em> (Boolean)</em><span> - Mirror SQUID by its Y axis</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
 <li><p><strong>junction_width</strong><em> (Double)</em><span> - Junction width (only used for code generated squids)</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">0.02</span></code><em>, unit=</em><code class="docutils literal notranslate"><span class="pre">[μm]</span></code></p></li>
+<li><p><strong>squid_type</strong><em> (String)</em><span> - SQUID Type</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">QCD1</span></code><em>, choices=</em><code class="docutils literal notranslate"><span class="pre">['NoSquid',</span> <span class="pre">'QCD1',</span> <span class="pre">'QCD2',</span> <span class="pre">'QCD3',</span> <span class="pre">'Sim',</span> <span class="pre">'SIM1']</span></code></p></li>
 </ul>
 <img alt="../_images/kqcircuits.test_structures.junction_test_pads.png" src="../_images/kqcircuits.test_structures.junction_test_pads.png" />
 </div>
@@ -285,7 +286,7 @@ in “base_metal_gap_wo_grid”-layer to “base_metal_gap_for_EBL”-layer.</p>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2021, IQM.
+        &#169; Copyright 2021-2022, IQM.
 
     </p>
   </div>

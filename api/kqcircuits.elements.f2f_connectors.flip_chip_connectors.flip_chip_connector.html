@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
 
   
@@ -32,11 +34,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -123,9 +124,8 @@
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.elements.launcher_dc.html">kqcircuits.elements.launcher_dc</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.elements.mask_marker_fc.html">kqcircuits.elements.mask_marker_fc</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.elements.meander.html">kqcircuits.elements.meander</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kqcircuits.elements.smooth_capacitor.html">kqcircuits.elements.smooth_capacitor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.elements.spiral_resonator_polygon.html">kqcircuits.elements.spiral_resonator_polygon</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kqcircuits.elements.spiral_resonator_rectangle.html">kqcircuits.elements.spiral_resonator_rectangle</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kqcircuits.elements.spiral_resonator_rectangle_multiface.html">kqcircuits.elements.spiral_resonator_rectangle_multiface</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.elements.waveguide_composite.html">kqcircuits.elements.waveguide_composite</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.elements.waveguide_coplanar.html">kqcircuits.elements.waveguide_coplanar</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kqcircuits.elements.waveguide_coplanar_curved.html">kqcircuits.elements.waveguide_coplanar_curved</a></li>
@@ -229,16 +229,16 @@
             
   <div class="section" id="module-kqcircuits.elements.f2f_connectors.flip_chip_connectors.flip_chip_connector">
 <span id="kqcircuits-elements-f2f-connectors-flip-chip-connectors-flip-chip-connector"></span><h1>kqcircuits.elements.f2f_connectors.flip_chip_connectors.flip_chip_connector<a class="headerlink" href="#module-kqcircuits.elements.f2f_connectors.flip_chip_connectors.flip_chip_connector" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="kqcircuits.elements.f2f_connectors.flip_chip_connectors.flip_chip_connector.FlipChipConnector">
-<em class="property">class </em><code class="sig-prename descclassname">kqcircuits.elements.f2f_connectors.flip_chip_connectors.flip_chip_connector.</code><code class="sig-name descname">FlipChipConnector</code><a class="reference internal" href="../_modules/kqcircuits/elements/f2f_connectors/flip_chip_connectors/flip_chip_connector.html#FlipChipConnector"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kqcircuits.elements.f2f_connectors.flip_chip_connectors.flip_chip_connector.FlipChipConnector" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="kqcircuits.elements.f2f_connectors.flip_chip_connectors.flip_chip_connector.FlipChipConnector">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">kqcircuits.elements.f2f_connectors.flip_chip_connectors.flip_chip_connector.</span></span><span class="sig-name descname"><span class="pre">FlipChipConnector</span></span><a class="reference internal" href="../_modules/kqcircuits/elements/f2f_connectors/flip_chip_connectors/flip_chip_connector.html#FlipChipConnector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kqcircuits.elements.f2f_connectors.flip_chip_connectors.flip_chip_connector.FlipChipConnector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="kqcircuits.elements.element.html#kqcircuits.elements.element.Element" title="kqcircuits.elements.element.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">kqcircuits.elements.element.Element</span></code></a></p>
 <p>Connector between matching faces of two chips.</p>
 <p>The connector makes a galvanic contact between the flipped over top chip and the bottom chip.
 Origin is at the geometric center.</p>
-<dl class="method">
-<dt id="kqcircuits.elements.f2f_connectors.flip_chip_connectors.flip_chip_connector.FlipChipConnector.create_bump_connector">
-<code class="sig-name descname">create_bump_connector</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kqcircuits/elements/f2f_connectors/flip_chip_connectors/flip_chip_connector.html#FlipChipConnector.create_bump_connector"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#kqcircuits.elements.f2f_connectors.flip_chip_connectors.flip_chip_connector.FlipChipConnector.create_bump_connector" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="kqcircuits.elements.f2f_connectors.flip_chip_connectors.flip_chip_connector.FlipChipConnector.create_bump_connector">
+<span class="sig-name descname"><span class="pre">create_bump_connector</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kqcircuits/elements/f2f_connectors/flip_chip_connectors/flip_chip_connector.html#FlipChipConnector.create_bump_connector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kqcircuits.elements.f2f_connectors.flip_chip_connectors.flip_chip_connector.FlipChipConnector.create_bump_connector" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -265,7 +265,7 @@ Origin is at the geometric center.</p>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2021, IQM.
+        &#169; Copyright 2021-2022, IQM.
 
     </p>
   </div>

@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
 
   
@@ -32,11 +34,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -203,7 +204,7 @@
 <div class="viewcode-block" id="AreaReceiver.put"><a class="viewcode-back" href="../../../api/kqcircuits.util.area.html#kqcircuits.util.area.AreaReceiver.put">[docs]</a>    <span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ix</span><span class="p">,</span> <span class="n">iy</span><span class="p">,</span> <span class="n">tile</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">dbu</span><span class="p">,</span> <span class="n">clip</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Function called by :class:`TilingProcessor` on output &quot;&quot;&quot;</span>
         <span class="c1">#pylint: disable=unused-argument</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Area for tile </span><span class="si">{</span><span class="n">ix</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">iy</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">obj</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">dbu</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Area for tile </span><span class="si">{</span><span class="n">ix</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">iy</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">obj</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">dbu</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">area</span> <span class="o">=</span> <span class="n">obj</span> <span class="o">*</span> <span class="p">(</span><span class="n">dbu</span> <span class="o">*</span> <span class="n">dbu</span><span class="p">)</span>  <span class="c1"># report as um^2</span></div></div>
 
 
@@ -257,7 +258,7 @@
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2019-2021, IQM.
+        &#169; Copyright 2021-2022, IQM.
 
     </p>
   </div>
