@@ -1,3 +1,11 @@
 {
   "contributors": []
+  "message": "Thank you for your pull request and welcome to our community. We
+  require contributors to sign our
+  [Contributor License Agreement](https://github.com/iqm-finland/KQCircuits#contributing),
+  and we don't seem to have {{usersWithoutCLA}} on file. In order for us to
+  review and merge your code, please [sign the CLA at meetiqm.com](). If you
+  have already signed the CLA but receive this message, please contact
+  @jkotilahti or ... ."
+  "label": "cla-signed"
 }
