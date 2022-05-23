@@ -8,4 +8,6 @@
   have already signed the CLA but receive this message, please contact
   @jkotilahti or ... ."
   "label": "cla-signed"
+  "recheckComment": "The cla-bot has been summoned, and re-checked this pull
+  request!"
 }
