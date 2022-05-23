@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Elements &mdash; KQCircuits 3.4.0 documentation</title>
+  <title>Elements &mdash; KQCircuits  documentation</title>
   
 
   
@@ -68,10 +68,6 @@
 
           
             
-            
-              <div class="version">
-                3.4.0
-              </div>
             
           
 
@@ -233,7 +229,7 @@ Refpoints “port_a” and “port_b” at top pad points closest to origin.</p>
 <li><p><strong>name_copy</strong><em> (String)</em><span> - Name of the copy</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
 <li><p><strong>text_margin</strong><em> (Double)</em><span> - Margin of the ground grid avoidance layer around the text</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">100</span></code></p></li>
 <li><p><strong>marker_dist</strong><em> (Double)</em><span> - Distance of markers from closest edges of the chip face</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">1500</span></code></p></li>
-<li><p><strong>marker_diagonals</strong><em> (Int)</em><span> - Number of diagonal squares for the markers</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">10</span></code></p></li>
+<li><p><strong>diagonal_squares</strong><em> (Int)</em><span> - Number of diagonal squares for the markers</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">10</span></code></p></li>
 <li><p><strong>use_face_prefix</strong><em> (Boolean)</em><span> - Use face prefix for chip name label</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
 <li><p><strong>marker_types</strong><em> (List)</em><span> - Marker type for each chip corner, starting from lower left and going clockwise</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">['Marker</span> <span class="pre">Standard',</span> <span class="pre">'Marker</span> <span class="pre">Standard',</span> <span class="pre">'Marker</span> <span class="pre">Standard',</span> <span class="pre">'Marker</span> <span class="pre">Standard']</span></code></p></li>
 </ul>
@@ -314,12 +310,19 @@ adjusted to maintain the a/b ratio.</p>
 <li><p><strong>output_rotation</strong><em> (Double)</em><span> - Rotation of output port w.r.t. input port</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">180</span></code><em>, unit=</em><code class="docutils literal notranslate"><span class="pre">degrees</span></code></p></li>
 <li><p><strong>connector_a</strong><em> (Double)</em><span> - Conductor width at the connector area</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">40</span></code><em>, unit=</em><code class="docutils literal notranslate"><span class="pre">μm</span></code></p></li>
 <li><p><strong>connector_b</strong><em> (Double)</em><span> - Gap width at the connector area</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">40</span></code><em>, unit=</em><code class="docutils literal notranslate"><span class="pre">μm</span></code></p></li>
+<li><p><strong>round_connector</strong><em> (Boolean)</em><span> - Use round connector shape</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p><strong>n_center_bumps</strong><em> (Int)</em><span> - Number of center bumps in series</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
 </ul>
 <img alt="flip_chip_rf" src="../_images/flip_chip_rf.png" />
 </div>
 <div class="section" id="tsv-connector">
 <h2>TSV connector<a class="headerlink" href="#tsv-connector" title="Permalink to this headline">¶</a></h2>
 <p>Through silicon via geometry</p>
+<strong>PCell parameters:</strong><div class="line"><br /></div>
+<ul class="simple">
+<li><p><strong>tsv_type</strong><em> (String)</em><span> - TSV type</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">Tsv</span> <span class="pre">Standard</span></code><em>, choices=</em><code class="docutils literal notranslate"><span class="pre">['Tsv</span> <span class="pre">Standard',</span> <span class="pre">'Tsv</span> <span class="pre">Ellipse']</span></code></p></li>
+<li><p><strong>tsv_diameter</strong><em> (Double)</em><span> - TSV diameter</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">100</span></code><em>, unit=</em><code class="docutils literal notranslate"><span class="pre">μm</span></code></p></li>
+</ul>
 <img alt="tsv" src="../_images/tsv.png" />
 </div>
 <div class="section" id="manual-squids">
@@ -384,8 +387,8 @@ segment is a meander.</p>
 </div>
 <div class="section" id="swissmon">
 <h2>Swissmon<a class="headerlink" href="#swissmon" title="Permalink to this headline">¶</a></h2>
-<p>Swissmon type qubit. Each arm (West, North, East, South) has it’s own
-width. “Hole” for the island has the same <code class="docutils literal notranslate"><span class="pre">gap_width</span></code> for each arm.
+<p>Swissmon type qubit. Each arm (West, North, East, South) has it’s own arm
+gap width (<code class="docutils literal notranslate"><span class="pre">gap_width</span></code>) and arm metal width (<code class="docutils literal notranslate"><span class="pre">arm_width</span></code>).
 SQUID is loaded from another library. Option of having fluxline.
 Refpoints for 3 couplers, fluxline position and chargeline position.
 Length between the ports is from waveguide port to the rectangular part of the launcher pad.
@@ -393,10 +396,10 @@ Length of the fingers is also used for the length of the launcher pad.</p>
 <strong>PCell parameters:</strong><div class="line"><br /></div>
 <ul class="simple">
 <li><p><strong>arm_length</strong><em> (List)</em><span> - Arm length (um, WNES))</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">[150.0,</span> <span class="pre">150.0,</span> <span class="pre">150.0,</span> <span class="pre">150.0]</span></code></p></li>
-<li><p><strong>arm_width</strong><em> (List)</em><span> - Arm width (um, WNES)</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">[24,</span> <span class="pre">24,</span> <span class="pre">24,</span> <span class="pre">24]</span></code></p></li>
-<li><p><strong>gap_width</strong><em> (Double)</em><span> - Arm gap full width</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">48</span></code><em>, unit=</em><code class="docutils literal notranslate"><span class="pre">μm</span></code></p></li>
+<li><p><strong>arm_width</strong><em> (List)</em><span> - Arm metal width (um, WNES)</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">[24,</span> <span class="pre">24,</span> <span class="pre">24,</span> <span class="pre">24]</span></code></p></li>
+<li><p><strong>gap_width</strong><em> (List)</em><span> - Arm gap width (um, WNES)</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">[12,</span> <span class="pre">12,</span> <span class="pre">12,</span> <span class="pre">12]</span></code></p></li>
 <li><p><strong>cpl_width</strong><em> (List)</em><span> - Coupler width (um, WNE)</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">[24,</span> <span class="pre">24,</span> <span class="pre">24]</span></code></p></li>
-<li><p><strong>cpl_length</strong><em> (List)</em><span> - Coupler lengths (um, WNE)</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">[160,</span> <span class="pre">160,</span> <span class="pre">160]</span></code></p></li>
+<li><p><strong>cpl_length</strong><em> (List)</em><span> - Coupler lengths (um, WNE)</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">[120,</span> <span class="pre">120,</span> <span class="pre">120]</span></code></p></li>
 <li><p><strong>cpl_gap</strong><em> (List)</em><span> - Coupler gap (um, WNE)</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">[102,</span> <span class="pre">102,</span> <span class="pre">102]</span></code></p></li>
 <li><p><strong>port_width</strong><em> (List)</em><span> - Port width (um, WNE)</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">[10,</span> <span class="pre">10,</span> <span class="pre">10]</span></code></p></li>
 <li><p><strong>cl_offset</strong><em> (List)</em><span> - Chargeline offset (um, um)</span><em>, default=</em><code class="docutils literal notranslate"><span class="pre">[200,</span> <span class="pre">200]</span></code></p></li>

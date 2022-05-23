@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Architecture &mdash; KQCircuits 3.4.0 documentation</title>
+  <title>Architecture &mdash; KQCircuits  documentation</title>
   
 
   
@@ -68,10 +68,6 @@
 
           
             
-            
-              <div class="version">
-                3.4.0
-              </div>
             
           
 
@@ -195,12 +191,16 @@
 <p>This section explains some things about the KQCircuits code architecture.</p>
 <div class="section" id="elements">
 <span id="architecture-elements"></span><h2>Elements<a class="headerlink" href="#elements" title="Permalink to this headline">¶</a></h2>
-<img alt="class diagram" src="../_images/class_diagram_1.png" />
 <p>Every KQCircuits object that can be placed in a KLayout layout is derived from
-<code class="docutils literal notranslate"><span class="pre">Element</span></code>. There exist also more specific base classes such as <code class="docutils literal notranslate"><span class="pre">Chip</span></code>,
-or <code class="docutils literal notranslate"><span class="pre">TestStructure</span></code>, which inherit from <code class="docutils literal notranslate"><span class="pre">Element</span></code>. Elements in KQCircuits
-are PCells (see <a class="reference external" href="https://www.klayout.de/doc-qt5/about/about_pcells.html">KLayout documentation</a> for more information on PCells), or
-more specifically, they inherit from <a class="reference external" href="https://www.klayout.de/doc-qt4/code/class_PCellDeclarationHelper.html">PCellDeclarationHelper</a>. Due to how
+<code class="docutils literal notranslate"><span class="pre">Element</span></code>, that in turn is derived from <a class="reference external" href="https://www.klayout.de/doc-qt4/code/class_PCellDeclarationHelper.html">PCellDeclarationHelper</a>.
+There exist also more specific base classes such as <code class="docutils literal notranslate"><span class="pre">Chip</span></code>, <code class="docutils literal notranslate"><span class="pre">Qubit</span></code> or
+<code class="docutils literal notranslate"><span class="pre">TestStructure</span></code>.</p>
+<img alt="class diagram" src="../_images/class_diagram_1.png" />
+<p>All base classes (black) are shown, abstracts are ovals, concretes are
+rectangles. Only one example “leaf” class (green) is shown for each base class.
+The class hierarchy is relatively flat as PCells make it more natural to use
+composition than inheritance.</p>
+<p>Elements in KQCircuits are PCells, see <a class="reference external" href="https://www.klayout.de/doc-qt5/about/about_pcells.html">KLayout documentation</a> for more information on PCells. Due to how
 KLayout handles PCells, the elements (i.e. classes inheriting from Element) in
 KQCircuits should not be treated as normal Python classes. The following
 things should be taken into account when writing new elements:</p>
@@ -238,7 +238,7 @@ for a sub-element are transparently passed to it from the caller with
 basis using the <code class="docutils literal notranslate"><span class="pre">default_parameter_values</span></code> section of the <code class="docutils literal notranslate"><span class="pre">defaults.py</span></code>
 configuration file. Technically this creates a copy of the Param object with
 different default value.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">add_parameters_from</span></code> decorator function adds some other class’
+<p>The <code class="docutils literal notranslate"><span class="pre">add_parameters_from</span></code>  or <code class="docutils literal notranslate"><span class="pre">add_parameter</span></code> decorator functions add some other class’
 parameter(s) to the decorated class so there is no need to re-define the same
 parameter in multiple places. They are like normal parameters to all intents and
 purposes. Note that these parameters will be inherited by descendants of the
@@ -246,7 +246,8 @@ decorated class. Technically these are like references to the same Param object.
 <p>With <code class="docutils literal notranslate"><span class="pre">add_parameters_from</span></code> it is also possible to add some other class’
 parameter with a changed default value. This is practically identical to setting
 a default value for the decorated class using <code class="docutils literal notranslate"><span class="pre">default_parameter_values</span></code> in
-the configuration file.</p>
+the configuration file. Technically, new parameter(s) are created with the
+updated values.</p>
 <p>Examples:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get two parameters form &#39;OtherClass&#39;</span>
 <span class="nd">@add_parameters_from</span><span class="p">(</span><span class="n">OtherClass</span><span class="p">,</span> <span class="s2">&quot;param_a&quot;</span><span class="p">,</span> <span class="s2">&quot;param_b&quot;</span><span class="p">)</span>
@@ -269,6 +270,14 @@ the configuration file.</p>
 <span class="k">class</span> <span class="nc">MyClass</span><span class="p">():</span>
 </pre></div>
 </div>
+<p>The <code class="docutils literal notranslate"><span class="pre">add_parameter</span></code> decorator is less practical as it only allows adding
+parameters one-by-one, but it is possible to change all the properties of a
+parameter with it, not only the <code class="docutils literal notranslate"><span class="pre">default</span></code> value but also <code class="docutils literal notranslate"><span class="pre">hidden</span></code>,
+<code class="docutils literal notranslate"><span class="pre">choices</span></code>, <code class="docutils literal notranslate"><span class="pre">unit</span></code> or even <code class="docutils literal notranslate"><span class="pre">description</span></code>. The syntax is also a bit
+different:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@add_parameter</span><span class="p">(</span><span class="n">OtherClass</span><span class="p">,</span> <span class="s2">&quot;param_a&quot;</span><span class="p">,</span> <span class="n">hidden</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="o">...</span><span class="p">],</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>Note that decorators are applied in “reverse-order”, i.e. first the class is
 defined and then from bottom-up the decorators are called. This is also the
 reason why decorators may override Param definitions in the class’ body but not
@@ -276,11 +285,16 @@ the other way around.</p>
 </div>
 <div class="section" id="libraries">
 <h2>Libraries<a class="headerlink" href="#libraries" title="Permalink to this headline">¶</a></h2>
-<p>The PCells in KQCircuits are divided into libraries such as <code class="docutils literal notranslate"><span class="pre">elements</span></code>,
-<code class="docutils literal notranslate"><span class="pre">chips</span></code> and <code class="docutils literal notranslate"><span class="pre">test_structures</span></code>. Each library contains a base class for all
-other classes in the library, for example all classes in <code class="docutils literal notranslate"><span class="pre">chips</span></code> library
-inherit from <code class="docutils literal notranslate"><span class="pre">Chip</span></code>. The base class contains <code class="docutils literal notranslate"><span class="pre">LIBRARY_NAME</span></code> and
-<code class="docutils literal notranslate"><span class="pre">LIBRARY_DESCRIPTION</span></code>, so that these are available for all elements.</p>
+<p>The PCells in KQCircuits are divided into libraries such as <code class="docutils literal notranslate"><span class="pre">Element</span>
+<span class="pre">Library</span></code>, <code class="docutils literal notranslate"><span class="pre">Chip</span> <span class="pre">Library</span></code> or <code class="docutils literal notranslate"><span class="pre">SQUID</span> <span class="pre">Library</span></code>. Each library contains a base
+class for all other classes in the library, for example all classes in the
+<code class="docutils literal notranslate"><span class="pre">Chip</span> <span class="pre">Library</span></code> inherit from the <code class="docutils literal notranslate"><span class="pre">Chip</span></code> base class. Each base class contains
+<code class="docutils literal notranslate"><span class="pre">LIBRARY_NAME</span></code> and <code class="docutils literal notranslate"><span class="pre">LIBRARY_DESCRIPTION</span></code> constants, so that these are
+available for all derived classes.</p>
+<img alt="library diagram" src="../_images/library_diagram.png" />
+<p>Libraries have a strict dependency order defined in <code class="docutils literal notranslate"><span class="pre">kqc_library_names</span></code> in
+<code class="docutils literal notranslate"><span class="pre">defaults.py</span></code>. KLayout loads them in this order. Classes <em>can not</em> use other
+classes from other libraries downstream in the dependency graph.</p>
 <p>The elements in these libraries are automatically discovered and registered to
 KLayout by <code class="docutils literal notranslate"><span class="pre">library_helper.py</span></code>. It finds all classes in KQCircuits
 directory which inherit from <code class="docutils literal notranslate"><span class="pre">PCellDeclarationHelper</span></code>, and uses their

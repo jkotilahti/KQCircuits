@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>kqcircuits.simulations.xmons_direct_coupling_full_chip_sim &mdash; KQCircuits 3.4.0 documentation</title>
+  <title>kqcircuits.simulations.xmons_direct_coupling_full_chip_sim &mdash; KQCircuits  documentation</title>
   
 
   
@@ -66,10 +66,6 @@
 
           
             
-            
-              <div class="version">
-                3.4.0
-              </div>
             
           
 
@@ -333,10 +329,10 @@
         <span class="p">}</span>
         <span class="n">finnmon_a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_element</span><span class="p">(</span><span class="n">Swissmon</span><span class="p">,</span>
             <span class="n">arm_width</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">arm_width_a</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span>
-            <span class="n">gap_width</span><span class="o">=</span><span class="mi">72</span><span class="p">,</span> <span class="o">**</span><span class="n">qubit_props_common</span><span class="p">)</span>
+            <span class="n">gap_width</span><span class="o">=</span><span class="p">[(</span><span class="mi">72</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">arm_width_a</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="o">**</span><span class="n">qubit_props_common</span><span class="p">)</span>
         <span class="n">finnmon_b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_element</span><span class="p">(</span><span class="n">Swissmon</span><span class="p">,</span>
             <span class="n">arm_width</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">arm_width_b</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span>
-            <span class="n">gap_width</span><span class="o">=</span><span class="mi">72</span><span class="p">,</span> <span class="o">**</span><span class="n">qubit_props_common</span><span class="p">)</span>
+            <span class="n">gap_width</span><span class="o">=</span><span class="p">[(</span><span class="mi">72</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">arm_width_b</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="o">**</span><span class="n">qubit_props_common</span><span class="p">)</span>
 
         <span class="p">(</span><span class="n">pos_qb1_dr</span><span class="p">,</span> <span class="n">pos_qb1_fl</span><span class="p">,</span> <span class="n">pos_qb1_rr</span><span class="p">,</span> <span class="n">port_qubit1_squid_a</span><span class="p">,</span> <span class="n">port_qubit1_squid_b</span><span class="p">)</span> <span class="o">=</span> \
             <span class="bp">self</span><span class="o">.</span><span class="n">produce_qubit</span><span class="p">(</span><span class="n">finnmon_a</span><span class="p">,</span> <span class="mf">5e3</span> <span class="o">-</span> <span class="mi">330</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">qubit_spacing</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;qb_1&quot;</span><span class="p">)</span>

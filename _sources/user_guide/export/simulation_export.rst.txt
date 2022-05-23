@@ -5,6 +5,8 @@ KQCircuits supports exports to following external simulation tools:
 
 * `Ansys HFSS <https://www.ansys.com/products/electronics/ansys-hfss>`_ and `Q3D Extractor <https://www.ansys.com/products/electronics/ansys-q3d-extractor>`_
 * `Sonnet <https://www.sonnetsoftware.com>`_
+* `Gmsh <https://gmsh.info>`_ and `Elmer <http://www.elmerfem.org>`_
+
 
 Creating simulation object
 --------------------------
@@ -173,15 +175,47 @@ Multiple simulations can be exported by calling ``export_sonnet``. The function 
 
     sons = export_sonnet([simulation], path)
 
+Gmsh/Elmer export
+-----------------
 
-Gmsh export
------------
+Usage of Gmsh and Elmer export is similar to Ansys export.
+The ``simulation`` object can be used with function ``export_elmer`` to export all necessary files to produce Gmsh/Elmer
+simulations.
 
-The ``simulation`` object can be used to export an FEM mesh using Gmsh calling function ``export_simulation_gmsh``.
-There is an automatized simulation example at 'klayout_package/python/scripts/simulations' that creates a mesh using Gmsh and 
-computes the capacitance matrix using Elmer and visualizes the results using Paraview.
+There is an example at 'klayout_package/python/scripts/simulations/waveguides_sim_compare.py', which creates a simulation folder
+with simulation scripts. The folder is created to `$TMP` (usually `kqcircuits/tmp`). The contents of the folder is something like::
 
-Please note that the example requires the installation of
+    waveguides_sim_elmer
+    ├── COMMIT_REFERENCE
+    ├── scripts
+    │   ├── elmer_helpers.py
+    │   ├── gmsh_helpers.py
+    │   └── run.py
+    ├── sif
+    │   ├── CapacitanceMatrix.sif
+    │   └── electric_potential.pvsm
+    ├── simulation.oas
+    ├── simulation.sh
+    ├── waveguides_n_guides_1.gds
+    ├── waveguides_n_guides_1.json
+    ├── waveguides_n_guides_1.sh
+    ├── waveguides_n_guides_2.gds
+    ├── waveguides_n_guides_2.json
+    └── waveguides_n_guides_2.sh
+
+`script` folder contains scripts that are used for preparing the simulations.
+
+`sif` contains the Solver Input Files (SIF) for Elmer (scripts in `scripts` -folder are used 
+to build the SIF files for each simulation).
+
+`waveguides_n_guides_1.sh`, `waveguides_n_guides_2.sh`, `...` are the shell scripts for running each simulation.
+Each script executes Gmsh (mesh creation), computes the FEM model using Elmer (computes the 
+capacitance matrix), and visualizes the results using Paraview.
+
+`simulation.sh` is a shell script for running all simulations at once.
+The simulations are executed by running the `.sh` file in the output folder (here `waveguides_sim_elmer`).
+
+Please note that running the example requires the installation of
 
 * gmsh python api
   ``pip install gmsh``
@@ -191,4 +225,5 @@ Please note that the example requires the installation of
   https://www.paraview.org/
 
 Gmsh api suffices if one needs to generate the mesh only.
+
 
