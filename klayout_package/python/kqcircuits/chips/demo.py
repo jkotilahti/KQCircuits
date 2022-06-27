@@ -81,7 +81,7 @@ class Demo(Chip):
 
     def produce_qubit(self, trans, inst_name):
         self.insert_cell(Swissmon, trans, inst_name,
-            cpl_length=[110, 120, 120],
+            cpl_length=[110, 120, 130],
             port_width=[4, 10, 4],
         )
 
