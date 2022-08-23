@@ -131,9 +131,16 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../user_guide/python_workflow.html#example-of-defining-an-element-class">Example of defining an <code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code> class</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../user_guide/python_workflow.html#example-of-defining-a-chip-and-inserting-elements-into-it">Example of defining a Chip and inserting elements into it</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../user_guide/python_workflow.html#example-of-defining-a-chip-and-inserting-elements-into-it">Example of defining a Chip and inserting elements into it</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../user_guide/python_workflow.html#defining-sampleholder-types">Defining sampleholder types</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../user_guide/python_workflow.html#refpoints">Refpoints</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../user_guide/python_workflow.html#faces">Faces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../user_guide/python_workflow.html#faces">Faces</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../user_guide/python_workflow.html#adding-a-new-face">Adding a new face</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../user_guide/python_workflow.html#kqcircuit-s-layers">KQCircuit’s Layers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../user_guide/python_workflow.html#opening-element-or-chip-from-an-ide">Opening <code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">Chip</span></code> from an IDE</a></li>
 </ul>
 </li>
@@ -307,10 +314,11 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../api/kqcircuits.elements.airbridges.html#module-kqcircuits.elements.airbridges">Module contents</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/kqcircuits.elements.f2f_connectors.html">kqcircuits.elements.f2f_connectors</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/kqcircuits.elements.f2f_connectors.flip_chip_connectors.html">kqcircuits.elements.f2f_connectors.flip_chip_connectors</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/kqcircuits.elements.f2f_connectors.tsvs.html">kqcircuits.elements.f2f_connectors.tsvs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/kqcircuits.elements.f2f_connectors.html#module-kqcircuits.elements.f2f_connectors">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/kqcircuits.elements.flip_chip_connectors.html">kqcircuits.elements.flip_chip_connectors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kqcircuits.elements.flip_chip_connectors.flip_chip_connector.html">kqcircuits.elements.flip_chip_connectors.flip_chip_connector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kqcircuits.elements.flip_chip_connectors.flip_chip_connector_dc.html">kqcircuits.elements.flip_chip_connectors.flip_chip_connector_dc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kqcircuits.elements.flip_chip_connectors.flip_chip_connector_rf.html">kqcircuits.elements.flip_chip_connectors.flip_chip_connector_rf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kqcircuits.elements.flip_chip_connectors.html#module-kqcircuits.elements.flip_chip_connectors">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/kqcircuits.elements.fluxlines.html">kqcircuits.elements.fluxlines</a><ul>
@@ -324,6 +332,13 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../api/kqcircuits.elements.markers.marker.html">kqcircuits.elements.markers.marker</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/kqcircuits.elements.markers.marker_standard.html">kqcircuits.elements.markers.marker_standard</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/kqcircuits.elements.markers.html#module-kqcircuits.elements.markers">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/kqcircuits.elements.tsvs.html">kqcircuits.elements.tsvs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kqcircuits.elements.tsvs.tsv.html">kqcircuits.elements.tsvs.tsv</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kqcircuits.elements.tsvs.tsv_ellipse.html">kqcircuits.elements.tsvs.tsv_ellipse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kqcircuits.elements.tsvs.tsv_standard.html">kqcircuits.elements.tsvs.tsv_standard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kqcircuits.elements.tsvs.html#module-kqcircuits.elements.tsvs">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/kqcircuits.elements.airbridge_connection.html">kqcircuits.elements.airbridge_connection</a></li>
@@ -391,9 +406,13 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/kqcircuits.test_structures.html">kqcircuits.test_structures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/kqcircuits.test_structures.junction_test_pads.html">kqcircuits.test_structures.junction_test_pads</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kqcircuits.test_structures.junction_test_pads.junction_test_pads.html">kqcircuits.test_structures.junction_test_pads.junction_test_pads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/kqcircuits.test_structures.junction_test_pads.html#module-kqcircuits.test_structures.junction_test_pads">Module contents</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/kqcircuits.test_structures.airbridge_dc.html">kqcircuits.test_structures.airbridge_dc</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/kqcircuits.test_structures.cross_test.html">kqcircuits.test_structures.cross_test</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/kqcircuits.test_structures.junction_test_pads.html">kqcircuits.test_structures.junction_test_pads</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/kqcircuits.test_structures.junction_test_pads_simple.html">kqcircuits.test_structures.junction_test_pads_simple</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/kqcircuits.test_structures.stripes_test.html">kqcircuits.test_structures.stripes_test</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/kqcircuits.test_structures.test_structure.html">kqcircuits.test_structures.test_structure</a></li>
@@ -536,10 +555,11 @@
 <span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="export_cell_netlist"><a class="viewcode-back" href="../../../api/kqcircuits.util.netlist_extraction.html#kqcircuits.util.netlist_extraction.export_cell_netlist">[docs]</a><span class="k">def</span> <span class="nf">export_cell_netlist</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<div class="viewcode-block" id="export_cell_netlist"><a class="viewcode-back" href="../../../api/kqcircuits.util.netlist_extraction.html#kqcircuits.util.netlist_extraction.export_cell_netlist">[docs]</a><span class="k">def</span> <span class="nf">export_cell_netlist</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">pcell</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Exports netlist into `filename` in JSON</span>
 
-<span class="sd">    The file will have three sections: ``{&quot;nets&quot;: {...}, &quot;subcircuits&quot;: {...}, &quot;circuits&quot;: {...}}``</span>
+<span class="sd">    The file will have four sections:</span>
+<span class="sd">    ``{&quot;nets&quot;: {...}, &quot;subcircuits&quot;: {...}, &quot;circuits&quot;: {...}, &quot;chip&quot;: {...}}``</span>
 
 <span class="sd">    KLayout&#39;s `terminology &lt;https://www.klayout.de/doc-qt5/manual/lvs_overview.html&gt;`__ differs</span>
 <span class="sd">    from the one used in typical EDA tools where we have components (resistors, capacitors, etc.),</span>
@@ -560,10 +580,16 @@
 
 <span class="sd">    The ``circuits`` section maps ``cell_name`` to a dictionary of the named Element&#39;s parameters.</span>
 
+<span class="sd">    If the Cell object is a Chip, the ``chip`` section contains bounding boxes of each face in the chip.</span>
+
 <span class="sd">    Args:</span>
 <span class="sd">        cell: pya Cell object</span>
 <span class="sd">        filename: absolute path as convertible to string</span>
+<span class="sd">        pcell: pya PCell object. If None, an attempt is made to treat cell as pcell</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">pcell</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">pcell</span> <span class="o">=</span> <span class="n">cell</span>
+
     <span class="c1"># get LayoutToNetlist object</span>
     <span class="n">layout</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">layout</span><span class="p">()</span>
     <span class="n">shapes_iter</span> <span class="o">=</span> <span class="n">pya</span><span class="o">.</span><span class="n">RecursiveShapeIterator</span><span class="p">(</span><span class="n">layout</span><span class="p">,</span> <span class="n">cell</span><span class="p">,</span> <span class="p">[</span><span class="n">layout</span><span class="o">.</span><span class="n">layer</span><span class="p">(</span><span class="n">default_layers</span><span class="p">[</span><span class="s2">&quot;b_ports&quot;</span><span class="p">]),</span>
@@ -587,12 +613,12 @@
     <span class="n">circuit</span> <span class="o">=</span> <span class="n">ltn</span><span class="o">.</span><span class="n">netlist</span><span class="p">()</span><span class="o">.</span><span class="n">circuit_by_cell_index</span><span class="p">(</span><span class="n">reverse_cell_map</span><span class="p">[</span><span class="n">cell</span><span class="o">.</span><span class="n">cell_index</span><span class="p">()])</span>
     <span class="k">if</span> <span class="n">circuit</span><span class="p">:</span>
         <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Exporting netlist to </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">export_netlist</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">ltn</span><span class="o">.</span><span class="n">internal_layout</span><span class="p">(),</span> <span class="n">layout</span><span class="p">,</span> <span class="n">cm</span><span class="p">)</span>
+        <span class="n">export_netlist</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">ltn</span><span class="o">.</span><span class="n">internal_layout</span><span class="p">(),</span> <span class="n">layout</span><span class="p">,</span> <span class="n">cm</span><span class="p">,</span> <span class="n">pcell</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No circuit found for </span><span class="si">{</span><span class="n">cell</span><span class="o">.</span><span class="n">display_title</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="export_netlist"><a class="viewcode-back" href="../../../api/kqcircuits.util.netlist_extraction.html#kqcircuits.util.netlist_extraction.export_netlist">[docs]</a><span class="k">def</span> <span class="nf">export_netlist</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">internal_layout</span><span class="p">,</span> <span class="n">original_layout</span><span class="p">,</span> <span class="n">cell_mapping</span><span class="p">):</span>
+<div class="viewcode-block" id="export_netlist"><a class="viewcode-back" href="../../../api/kqcircuits.util.netlist_extraction.html#kqcircuits.util.netlist_extraction.export_netlist">[docs]</a><span class="k">def</span> <span class="nf">export_netlist</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">internal_layout</span><span class="p">,</span> <span class="n">original_layout</span><span class="p">,</span> <span class="n">cell_mapping</span><span class="p">,</span> <span class="n">pcell</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Exports `circuit` into `filename` in JSON</span>
 
 <span class="sd">    Args:</span>
@@ -601,6 +627,7 @@
 <span class="sd">        internal_layout: pya layout object where the netlist cells are registered</span>
 <span class="sd">        original_layout: pya Layout object where the original cells and pcells are registered</span>
 <span class="sd">        cell_mapping: CellMapping object as given by pya LayoutToNetlist object</span>
+<span class="sd">        pcell: pya PCell object from which circuit was extracted, if available</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># first flatten subcircuits mentioned in elements to breakdown</span>
@@ -621,35 +648,81 @@
 
     <span class="c1"># selects last cell in the layout, which will contain all instances of all cells with user properties</span>
     <span class="o">*</span><span class="n">_</span><span class="p">,</span> <span class="n">last_cell</span> <span class="o">=</span> <span class="n">original_layout</span><span class="o">.</span><span class="n">each_cell</span><span class="p">()</span>
-    <span class="n">original_instances</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">last_cell</span><span class="o">.</span><span class="n">each_inst</span><span class="p">())</span>
+
+    <span class="c1"># retrieve all instances in last_cell hierarchy</span>
+    <span class="c1"># instances in original layout are identified by cell index and transformation</span>
+    <span class="c1"># the concatenated transformation of instance&#39;s predecessors is stored as tuple&#39;s second element</span>
+    <span class="n">original_instances</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">instance_queue</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">last_cell</span><span class="o">.</span><span class="n">each_inst</span><span class="p">())</span>
+    <span class="n">instance_queue</span> <span class="o">=</span> <span class="p">[(</span><span class="n">instance</span><span class="p">,</span> <span class="n">pya</span><span class="o">.</span><span class="n">DCplxTrans</span><span class="o">.</span><span class="n">R0</span><span class="p">)</span> <span class="k">for</span> <span class="n">instance</span> <span class="ow">in</span> <span class="n">instance_queue</span><span class="p">]</span>
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">instance_queue</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">instance</span><span class="p">,</span> <span class="n">instance_trans</span> <span class="o">=</span> <span class="n">instance_queue</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">original_instances</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">instance</span><span class="p">,</span> <span class="n">instance_trans</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">instance</span><span class="o">.</span><span class="n">cell</span><span class="o">.</span><span class="n">each_inst</span><span class="p">():</span>
+            <span class="n">instance_queue</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">child</span><span class="p">,</span> <span class="n">instance_trans</span> <span class="o">*</span> <span class="n">instance</span><span class="o">.</span><span class="n">dcplx_trans</span><span class="p">))</span>
+
+    <span class="c1"># Indexing as defined in default_layers is not consistent with layer indexing in original_layout</span>
+    <span class="n">base_metal_gap_wo_grid_layer_idx_array</span> <span class="o">=</span> <span class="p">[</span><span class="n">idx</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">li</span> <span class="ow">in</span>
+        <span class="nb">enumerate</span><span class="p">(</span><span class="n">original_layout</span><span class="o">.</span><span class="n">layer_infos</span><span class="p">())</span> <span class="k">if</span> <span class="n">li</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;_base_metal_gap_wo_grid&#39;</span><span class="p">)]</span>
 
     <span class="k">for</span> <span class="n">subcircuit</span> <span class="ow">in</span> <span class="n">circuit</span><span class="o">.</span><span class="n">each_subcircuit</span><span class="p">():</span>
         <span class="n">internal_cell</span> <span class="o">=</span> <span class="n">internal_layout</span><span class="o">.</span><span class="n">cell</span><span class="p">(</span><span class="n">subcircuit</span><span class="o">.</span><span class="n">circuit_ref</span><span class="p">()</span><span class="o">.</span><span class="n">cell_index</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">cell_mapping</span><span class="o">.</span><span class="n">has_mapping</span><span class="p">(</span><span class="n">internal_cell</span><span class="o">.</span><span class="n">cell_index</span><span class="p">()):</span>
             <span class="n">original_cell_index</span> <span class="o">=</span> <span class="n">cell_mapping</span><span class="o">.</span><span class="n">cell_mapping</span><span class="p">(</span><span class="n">internal_cell</span><span class="o">.</span><span class="n">cell_index</span><span class="p">())</span>
-            <span class="n">possible_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">original_instances</span> <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">cell</span><span class="o">.</span><span class="n">cell_index</span><span class="p">()</span> <span class="o">==</span> <span class="n">original_cell_index</span><span class="p">]</span>
+            <span class="n">possible_instances</span> <span class="o">=</span> <span class="p">[(</span><span class="n">i</span><span class="p">,</span><span class="n">i_trans</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">i_trans</span> <span class="ow">in</span> <span class="n">original_instances</span>
+                                                <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">cell</span><span class="o">.</span><span class="n">cell_index</span><span class="p">()</span> <span class="o">==</span> <span class="n">original_cell_index</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">((</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> element has no cell mapping in </span><span class="si">%s</span><span class="s1"> between circuit layout and orignal layout,&#39;</span>
+                    <span class="s1">&#39; using subcircuit center point as subcircuit_location instead&#39;</span><span class="p">),</span> <span class="n">internal_cell</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">circuit</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
             <span class="n">possible_instances</span> <span class="o">=</span> <span class="p">[]</span>
 
         <span class="n">used_internal_cells</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">internal_cell</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">subcircuit</span><span class="p">,</span> <span class="s2">&quot;trans&quot;</span><span class="p">):</span>
-            <span class="n">subcircuit_origin</span> <span class="o">=</span> <span class="n">subcircuit</span><span class="o">.</span><span class="n">trans</span><span class="o">.</span><span class="n">disp</span>
+            <span class="n">subcircuit_trans</span> <span class="o">=</span> <span class="n">subcircuit</span><span class="o">.</span><span class="n">trans</span>
             <span class="n">subcircuit_location</span> <span class="o">=</span> <span class="p">(</span><span class="n">subcircuit</span><span class="o">.</span><span class="n">trans</span> <span class="o">*</span> <span class="n">subcircuit</span><span class="o">.</span><span class="n">circuit_ref</span><span class="p">()</span><span class="o">.</span><span class="n">boundary</span><span class="p">)</span><span class="o">.</span><span class="n">bbox</span><span class="p">()</span><span class="o">.</span><span class="n">center</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>  <span class="c1"># sane defaults for klayout 0.26 as it does not have `subcircuit.trans`</span>
-            <span class="n">subcircuit_origin</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
-            <span class="n">subcircuit_location</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+            <span class="n">subcircuit_trans</span> <span class="o">=</span> <span class="n">pya</span><span class="o">.</span><span class="n">DCplxTrans</span><span class="o">.</span><span class="n">R0</span>
+            <span class="n">subcircuit_location</span> <span class="o">=</span> <span class="n">pya</span><span class="o">.</span><span class="n">DPoint</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
 
-        <span class="n">correct_instance</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">possible_instances</span> <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">has_prop_id</span><span class="p">()</span> <span class="ow">and</span> <span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">dtrans</span><span class="o">.</span><span class="n">disp</span> <span class="o">==</span> <span class="n">subcircuit_origin</span><span class="p">)]</span>
-        <span class="k">if</span> <span class="n">correct_instance</span><span class="p">:</span>
-            <span class="n">property_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">value</span> <span class="k">for</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="n">original_layout</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">correct_instance</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">prop_id</span><span class="p">)</span>
-                             <span class="k">if</span> <span class="n">key</span> <span class="o">!=</span> <span class="s2">&quot;id&quot;</span><span class="p">}</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">property_dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">instances_with_eq_trans</span> <span class="o">=</span> <span class="p">[(</span><span class="n">i</span><span class="p">,</span> <span class="n">i_trans</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">i_trans</span> <span class="ow">in</span> <span class="n">possible_instances</span>
+                                                <span class="k">if</span> <span class="n">i_trans</span> <span class="o">*</span> <span class="n">i</span><span class="o">.</span><span class="n">dcplx_trans</span> <span class="o">==</span> <span class="n">subcircuit_trans</span><span class="p">]</span>
+        <span class="n">property_dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">correct_instance</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">instances_with_eq_trans</span><span class="p">:</span>
+            <span class="c1"># Find property_dict if available</span>
+            <span class="n">instances_with_property_dict</span> <span class="o">=</span> <span class="p">[(</span><span class="n">i</span><span class="p">,</span> <span class="n">i_trans</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">i_trans</span> <span class="ow">in</span> <span class="n">instances_with_eq_trans</span> <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">has_prop_id</span><span class="p">()]</span>
+            <span class="k">if</span> <span class="n">instances_with_property_dict</span><span class="p">:</span>
+                <span class="n">correct_instance</span><span class="p">,</span> <span class="n">correct_instance_trans</span> <span class="o">=</span> <span class="n">instances_with_property_dict</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">property_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">value</span> <span class="k">for</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">in</span>
+                    <span class="n">original_layout</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">correct_instance</span><span class="o">.</span><span class="n">prop_id</span><span class="p">)</span> <span class="k">if</span> <span class="n">key</span> <span class="o">!=</span> <span class="s2">&quot;id&quot;</span><span class="p">}</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">correct_instance</span><span class="p">,</span> <span class="n">correct_instance_trans</span> <span class="o">=</span> <span class="n">instances_with_eq_trans</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="c1"># Collect bounding boxes for all *_base_metal_gap_wo_grid layers</span>
+            <span class="c1"># then construct a bigger bounding box that envelops all of them</span>
+            <span class="n">bboxes</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">base_metal_gap_wo_grid_layer_idx_array</span><span class="p">:</span>
+                <span class="n">bbox</span> <span class="o">=</span> <span class="n">correct_instance</span><span class="o">.</span><span class="n">dbbox_per_layer</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">bbox</span><span class="o">.</span><span class="n">empty</span><span class="p">():</span>
+                    <span class="n">bboxes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bbox</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">bboxes</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">combined_bbox</span> <span class="o">=</span> <span class="n">pya</span><span class="o">.</span><span class="n">DBox</span><span class="p">(</span><span class="nb">min</span><span class="p">([</span><span class="n">bbox</span><span class="o">.</span><span class="n">p1</span><span class="o">.</span><span class="n">x</span> <span class="k">for</span> <span class="n">bbox</span> <span class="ow">in</span> <span class="n">bboxes</span><span class="p">]),</span> <span class="nb">min</span><span class="p">([</span><span class="n">bbox</span><span class="o">.</span><span class="n">p1</span><span class="o">.</span><span class="n">y</span> <span class="k">for</span> <span class="n">bbox</span> <span class="ow">in</span> <span class="n">bboxes</span><span class="p">]),</span>
+                                         <span class="nb">max</span><span class="p">([</span><span class="n">bbox</span><span class="o">.</span><span class="n">p2</span><span class="o">.</span><span class="n">x</span> <span class="k">for</span> <span class="n">bbox</span> <span class="ow">in</span> <span class="n">bboxes</span><span class="p">]),</span> <span class="nb">max</span><span class="p">([</span><span class="n">bbox</span><span class="o">.</span><span class="n">p2</span><span class="o">.</span><span class="n">y</span> <span class="k">for</span> <span class="n">bbox</span> <span class="ow">in</span> <span class="n">bboxes</span><span class="p">]))</span>
+                <span class="c1"># subcircuit_location is the center of geometry of all *_base_metal_gap_wo_grid layers in the cell</span>
+                <span class="c1"># we also transform the point by instance&#39;s predecessors&#39; transformation</span>
+                <span class="n">subcircuit_location</span> <span class="o">=</span> <span class="n">correct_instance_trans</span> <span class="o">*</span> <span class="n">combined_bbox</span><span class="o">.</span><span class="n">center</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">((</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> element has no bounding boxes in *_base_metal_gap_wo_grid layers in </span><span class="si">%s</span><span class="s1">,&#39;</span>
+                    <span class="s1">&#39; using subcircuit center point as subcircuit_location instead&#39;</span><span class="p">),</span>
+                    <span class="n">internal_cell</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">circuit</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">possible_instances</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">((</span><span class="s1">&#39;Could not find a matching element for </span><span class="si">%s</span><span class="s1"> subcircuit in the orignal layout of </span><span class="si">%s</span><span class="s1">,&#39;</span>
+                    <span class="s1">&#39; using subcircuit center point as subcircuit_location instead&#39;</span><span class="p">),</span> <span class="n">internal_cell</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">circuit</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 
         <span class="n">subcircuits_for_export</span><span class="p">[</span><span class="n">subcircuit</span><span class="o">.</span><span class="n">id</span><span class="p">()]</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s2">&quot;cell_name&quot;</span><span class="p">:</span> <span class="n">internal_cell</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
-            <span class="s2">&quot;instance_name&quot;</span><span class="p">:</span> <span class="n">correct_instance</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">property</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">correct_instance</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="s2">&quot;instance_name&quot;</span><span class="p">:</span> <span class="n">correct_instance</span><span class="o">.</span><span class="n">property</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">correct_instance</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="s2">&quot;subcircuit_origin&quot;</span><span class="p">:</span> <span class="n">subcircuit_trans</span><span class="o">.</span><span class="n">disp</span><span class="p">,</span>
             <span class="s2">&quot;subcircuit_location&quot;</span><span class="p">:</span> <span class="n">subcircuit_location</span><span class="p">,</span>
             <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="n">property_dict</span><span class="p">,</span>
         <span class="p">}</span>
@@ -658,9 +731,24 @@
     <span class="k">for</span> <span class="n">internal_cell</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">used_internal_cells</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">cell</span><span class="p">:</span> <span class="n">cell</span><span class="o">.</span><span class="n">name</span><span class="p">):</span>
         <span class="n">circuits_for_export</span><span class="p">[</span><span class="n">internal_cell</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">extract_circuits</span><span class="p">(</span><span class="n">cell_mapping</span><span class="p">,</span> <span class="n">internal_cell</span><span class="p">,</span> <span class="n">original_layout</span><span class="p">)</span>
 
+    <span class="n">chip_for_export</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">if</span> <span class="n">pcell</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">pcell</span><span class="o">.</span><span class="n">pcell_declaration</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">chip_params</span> <span class="o">=</span> <span class="n">pcell</span><span class="o">.</span><span class="n">pcell_parameters_by_name</span><span class="p">()</span>
+        <span class="k">if</span> <span class="p">{</span><span class="s1">&#39;frames_enabled&#39;</span><span class="p">,</span> <span class="s1">&#39;face_boxes&#39;</span><span class="p">,</span> <span class="s1">&#39;face_ids&#39;</span><span class="p">,</span> <span class="s1">&#39;box&#39;</span><span class="p">}</span> <span class="o">&lt;=</span> <span class="nb">set</span><span class="p">(</span><span class="n">chip_params</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+            <span class="k">for</span> <span class="n">face</span> <span class="ow">in</span> <span class="n">chip_params</span><span class="p">[</span><span class="s1">&#39;frames_enabled&#39;</span><span class="p">]:</span>
+                <span class="n">face_box</span> <span class="o">=</span> <span class="n">chip_params</span><span class="p">[</span><span class="s1">&#39;face_boxes&#39;</span><span class="p">][</span><span class="nb">int</span><span class="p">(</span><span class="n">face</span><span class="p">)]</span>
+                <span class="k">if</span> <span class="n">face_box</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">face_box</span> <span class="o">=</span> <span class="n">chip_params</span><span class="p">[</span><span class="s1">&#39;box&#39;</span><span class="p">]</span>
+                <span class="n">face_id</span> <span class="o">=</span> <span class="n">chip_params</span><span class="p">[</span><span class="s1">&#39;face_ids&#39;</span><span class="p">][</span><span class="nb">int</span><span class="p">(</span><span class="n">face</span><span class="p">)]</span>
+                <span class="n">chip_for_export</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">face_id</span><span class="si">}</span><span class="s1">_face_dimensions&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">face_box</span>
+
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">filename</span><span class="p">),</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
-        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">({</span><span class="s2">&quot;nets&quot;</span><span class="p">:</span> <span class="n">nets_for_export</span><span class="p">,</span> <span class="s2">&quot;subcircuits&quot;</span><span class="p">:</span> <span class="n">subcircuits_for_export</span><span class="p">,</span> <span class="s2">&quot;circuits&quot;</span><span class="p">:</span> <span class="n">circuits_for_export</span><span class="p">},</span> <span class="n">fp</span><span class="p">,</span>
-                  <span class="bp">cls</span><span class="o">=</span><span class="n">GeometryJsonEncoder</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span></div>
+        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">({</span>
+            <span class="s2">&quot;nets&quot;</span><span class="p">:</span> <span class="n">nets_for_export</span><span class="p">,</span>
+            <span class="s2">&quot;subcircuits&quot;</span><span class="p">:</span> <span class="n">subcircuits_for_export</span><span class="p">,</span>
+            <span class="s2">&quot;circuits&quot;</span><span class="p">:</span> <span class="n">circuits_for_export</span><span class="p">,</span>
+            <span class="s2">&quot;chip&quot;</span><span class="p">:</span> <span class="n">chip_for_export</span>
+        <span class="p">},</span> <span class="n">fp</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="n">GeometryJsonEncoder</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="extract_nets"><a class="viewcode-back" href="../../../api/kqcircuits.util.netlist_extraction.html#kqcircuits.util.netlist_extraction.extract_nets">[docs]</a><span class="k">def</span> <span class="nf">extract_nets</span><span class="p">(</span><span class="n">net</span><span class="p">):</span>
